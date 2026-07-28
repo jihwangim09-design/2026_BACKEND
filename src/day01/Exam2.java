@@ -24,7 +24,33 @@ public class Exam2 {        // 클래스 시작
 
             // 3) String : ""(큰따옴표로 감싼 문자 N개 저장하는 타입) , N * 2 byte 문자열개수만큼 크기다 달라짐 한글이 조금더큼 , 객체(문자열)
             String str1 = "ABC";
-            
+            System.out.println( str1 );
+
+
+            // === 정수 ===
+            // 4) byte : -128 ~ 127 저장하는 타입 , 1byte 0이 포함되서 127까지 
+            byte b1 = 100; System.out.println( b1 ); //127이 넘어가면 빨간줄이뜬다(에러)
+
+            // 5) short : +-3만정도, 2byte
+            short sh1 = 30000; System.out.println( sh1 );
+
+            // 6) int : +-21억정도 , 4byte , **** (정수) 리터럴 타입 ****
+            int i1 = 2000000000; System.out.println( i1 );
+
+            // 7) long : +-21억이상, 8byte , 키보드로부터 입력한 정수는 int 이므로 뒤에 L/l(대문자L이나소문자l) 붙인다
+            long l1 = 20000000000L; System.out.println( l1 );
+
+            // === 실수 === : 부동소수점 이용한 소수점 표현은 오차가 있으므로 정교한 소수점/계산 라이브러리
+            // 8) float : 소수점 8자리 표현 , 4byte , 키보드로부터 입력한 실수는 double 이므로 뒤에 F/f(대문자F나소문자f) 붙인다
+            float f1 = 0.123456789123456789F; System.out.println( f1 );
+            // 9) double : 소수점 17자리 표현 , 8byte , (실수)리터럴 타입
+            double d1 = 0.123456789123456789; System.out.println( d1 );
+
+            // 8가지 타입 ( 기본타입, 리터럴 저장 )
+            // vs 그외(String) 타입 ( 참조타입 , 클래스/객체/배열/인터페이스 등등)
+
+
+
             
         } // 메인함수 끝
 } // 클래스 끝

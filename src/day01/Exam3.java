@@ -1,5 +1,7 @@
 package day01;
 
+import java.util.Scanner;
+
 public class Exam3 { // class start
 
     public static void main(String[] args) { // main s
@@ -29,6 +31,20 @@ public class Exam3 { // class start
         System.out.printf( "저는 %6s 이고 나이는 %06d 입니다\n" , "유재석",40);
         System.out.printf( "저는 %-6s 이고 나이는 %5.2f 입니다\n" , "유재석",123.456789);
 
+        // [3] 입력객체/함수
+        // [입력객체]
+        // 1. Scanner : 입력관련클래스, SC + 엔터 , 코드파일 상단에 import java.util.Scanner; ( 해당 폴더에서 클래스 가져옵니다란 뜻)
+        // 2. Scanner : 아무거나, 카멜표기법, 관레적으로 (클래스명은 대문자로 시작) 클래스명의 소문자로 변수명 설정
+        // 3. = 대입
+        // 4. new : 인스턴스화, 해당 클래스로 객체 만든다 뜻 
+        // 5. Scanner( System.in ) : 생성자(클래스명동일)안에 시스템입력(System.in) 객체
+        // 클래스 수업 전까지는 해당 하는 한줄의 코드 복붙
+        Scanner scanner = new Scanner( System.in );
+
+        // [입력함수] * 주로 입력(받은)함수 결과는 변수에 저장한다.
+        // 6. scanner.next();   :터미널(콘솔)에서 입력받은 자료 (문자열) 반환
+        String srt = scanner.next(); //터미널(콘솔) 창에서 아무거나 입력후 엔터 기준으로 입력 마침.
+        // 문자열타입 변수명 = 문자열반환 , 과일상자 == 과일타입, 과자상자 == 과자타입
 
     } // main e
 

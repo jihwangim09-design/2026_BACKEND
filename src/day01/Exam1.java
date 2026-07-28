@@ -24,7 +24,7 @@ public class Exam1 {
     // [1] 자바 실행 시작점 생성 , main함수( 번역한 코드를 읽어드리는 흐름 단위=메인스레드 )
     // m + 엔터 : main{ } 자동완성 , JS에 없는 이유는 브라우저(크롬/엣지 등)엔진이 해주기 대신해주기때문
     public static void main(String[] args) { //main start
-        
+        //
         // ** [main 함수 안] 선언/만들기 , 실행문 가능 ** 여기는 지역변수
         int b = 10; //가능!
         // [2] 콘솔 출력문 실행하기

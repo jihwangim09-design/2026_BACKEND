@@ -53,7 +53,7 @@ public class Exam3 { // class start
         System.out.print( "2) 정수 입력: ");
         int i = scanner.nextInt();
         System.out.printf("입력받은 자료: %d \n" , i );
-        
+    
         
     } // main e
 

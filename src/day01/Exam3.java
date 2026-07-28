@@ -41,11 +41,20 @@ public class Exam3 { // class start
         // 클래스 수업 전까지는 해당 하는 한줄의 코드 복붙
         Scanner scanner = new Scanner( System.in );
 
-        // [입력함수] * 주로 입력(받은)함수 결과는 변수에 저장한다.
-        // 6. scanner.next();   :터미널(콘솔)에서 입력받은 자료 (문자열) 반환
-        String srt = scanner.next(); //터미널(콘솔) 창에서 아무거나 입력후 엔터 기준으로 입력 마침.
+        // [입력함수] , scanner.nextXXX() , 엔터기준으로 입력 단위 next를 두번하면 두번입력받음 , * 주로 입력(받은)함수 결과는 변수에 저장한다.
+        // 6. scanner.next();   :터미널(콘솔)에서 입력받은 자료 (문자열) 
+        
+        System.out.print("1) 문자열입력: ");
+        String str = scanner.next(); //터미널(콘솔) 창에서 아무거나 입력후 엔터 기준으로 입력 마침.
         // 문자열타입 변수명 = 문자열반환 , 과일상자 == 과일타입, 과자상자 == 과자타입
+        System.out.printf( "입력받은 자료: \n", str );
 
+        // 7. scaaner.nextInt() : 터미널(콘솔)에서 입력받은 자료 (정수) 반환 정수로 변환이 불가능한 자료 입력시 오류 발생
+        System.out.print( "2) 정수 입력: ");
+        int i = scanner.nextInt();
+        System.out.printf("입력받은 자료: %d \n" , i );
+        
+        
     } // main e
 
 } //class e

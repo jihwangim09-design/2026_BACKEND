@@ -28,25 +28,28 @@ public class Practice3 {
     System.out.println("비율:"+ result3 +"%" ); 
 
     // 4.
-    System.out.print("숫자를 입력하세요 : ");
+    System.out.print("숫자를 입력하세요: ");
     int number = scan.nextInt();
     System.out.println(number % 2 == 1); // >= <= > < == != 비교연산자의 결과는 항상 true/false
     
     // 5.
+    System.out.print("숫자를 입력하세요: ");
+    int i = scan.nextInt();
+    System.out.println(i % 7 == 0);
 
-    // 6.
+    // 6. JS/PY == 문자열비교가능 , JAVA/C == 문자열비교불가능
+    System.out.print("아이디입력: "); String id = scan.next();  // .next() 문자열 -> String 변수
+    System.out.print("비밀번호입력: "); String pw = scan.next(); 
+    System.out.println(id.equals("admin")&&pw.equals("1234")); // 문자열A.equals(문자열B)
 
     // 7.
 
+    
     // 8.
 
     // 9.
 
     // 10.
-
-
-
-    
 
     } //m e
 } // c e

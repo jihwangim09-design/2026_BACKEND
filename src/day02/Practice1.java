@@ -2,7 +2,7 @@ package day02;
 
 public class Practice1 { // main s
     public static void main(String[] args) {
-        // 1. so + 엔터 
+        // 1. so + 엔터 : println함수
         System.out.println( 25 ); System.out.println("홍길동");
         // 2. JAVA: 타입 변수명 = 10 [[VS]] JS: let 변수명 = 10
         int age = 40;  // vs let age = 40
@@ -10,12 +10,16 @@ public class Practice1 { // main s
         // 3. 변수의 초기(처음)화 : 변수 선언시 처음에 자료 대입
         String name = "유재석"; int age2 = 40; double height = 170.5; String motto = "~살자";
         // 4. + 더하기연산자와 연결연산자 , "문자열"+변수명+"문자열"+변수명
-        System.out.println( "제 이름은 "name+" , 나이는 "+age2+"세, 키는 "+height+"cm 입니다.");
+        System.out.println( "제 이름은 "+name+" , 나이는 "+age2+"세, 키는 "+height+"cm 입니다.");
         // 5. +연결연산자 복잡한 경우 형식문자 printf( "형식문자", 자료 )
         System.out.printf("제 이름은 %s, 나이는 %d세, 키는 %.1f cm입니다.\n");
+        // 6. |: shit+\ , \n : 줄바꿈 , \" = "만출력됨
+        System.out.println( "|\\_/| \n|q p|.  /} \n (0)\"\"\"\\ \n|\"^\"`   |");
 
-    }
-}
+
+
+    }   // main e
+}   // class e
 
 /* 문제 1: 리터럴(Literal)과 기본 출력 함수
 지시: System.out.println() 함수를 사용해서 숫자 25와 문자열 "홍길동"을 각각 다른 줄에 출력 하시오.*/

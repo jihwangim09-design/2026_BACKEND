@@ -8,7 +8,7 @@ public class Practice2 {
     // 1 
     byte a = 10; int b = 200;
     long result1 = a + b; // byte + int => int + int -> long
-    System.out.println(resutl1);
+    System.out.println(result1);
 
     // 2. (변환할자료명)자료/변수명
     double z =3.141592; int result2 = (int)z; // 3.141592 -> 3

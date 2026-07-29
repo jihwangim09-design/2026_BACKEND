@@ -3,7 +3,7 @@ package day02;
 public class Exam1 {
     public static void main(String[] args) {
 
-        // == 다형성 ==
+        // == 다형성 : 하나의 자료가 다양한 형태/모양 가진다. ==
         // [1] 자동(묵시적) 타입 반환 : byte -> short -> int -> long -> float -> double ,
         byte bytevalue = 100;               //btye 타입에 bytevalue 변수명으로 100 리터럴 대입했다.
         short shortvalue = bytevalue;       // [가능] byte -> short [자료유지,타입변경]
@@ -21,7 +21,12 @@ public class Exam1 {
         float result5 = i1 + f1; // int + float => float
         double result6 = i1 + d1; // int + double => double
 
-        // [2] 강제 타입 변환
-
+        // [2] 강제 타입 변환 : byte <- short <- int <- long <- float <- double , 큰것 -> 작은것 5에서3으로 가려면 2만큼 손실이 생길수있음 자료형에 따라 다름
+        double  dvalue = 3.14;
+        float fvalue = (float)dvalue;      // [불가능] , 자료앞에(변환활타입) 명시해서 강제로 타입변환 가능
+        long lvalue = (long)fvalue;        // 3.14 -> 3 손실발생
+        int ivalue = (int)lvalue;
+        short svalue = (short)ivalue;
+        byte bvalue = (byte)svalue;
     } // main end
 } // class end

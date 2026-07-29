@@ -53,6 +53,24 @@ public class Practice1 { // class s
 
         // 11. 직접 풀기 
         
+        
 
     } // main e // ctrl+f5(코드실행) 
+
 }// class e
+
+/*
+문제 11: Scanner를 사용하여 아래 4가지 정보를 순서대로 입력받아 출력하는 코드를 작성하시오.
+이름 (String), 나이 (int), 키 (double), 프로그래머 여부 (boolean)
+입력 예시:
+이름: 김자바
+나이: 25
+키: 165.8
+프로그래머입니까? (true/false): true
+출력 예시:
+--- 자기소개 ---
+이름: 김자바
+나이: 25
+키: 165.8cm
+프로그래머 여부: true
+*/

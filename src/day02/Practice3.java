@@ -82,14 +82,13 @@ public class Practice3 {
     if(아이디.equals("admin") || 이메일.equals("admin@test.com")){System.out.println("관리자");}
     else{System.out.println("일반 사용자");};
 
-    // 15. 삼항연산자 중첩
-    System.out.println("점수를 입력하세요:");
-    int score3 = scan.nextInt();
-    System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 && score3 < 90 ? 'B' : 'C');
+    // 15. 삼항연산자 중첩 , 조건?참: 조건?참: 조건?참:거짓
+    System.out.println("점수를 입력하세요:"); int score3 = scan.nextInt();
+    System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 ? 'B' : 'C');
 
     // 16.
     System.out.println("나이를 입력하세요:"); int age = scan.nextInt();
-System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
+    System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
 
 
     } //m e

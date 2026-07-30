@@ -42,14 +42,55 @@ public class Practice3 {
     System.out.print("비밀번호입력: "); String pw = scan.next(); 
     System.out.println(id.equals("admin")&&pw.equals("1234")); // 문자열A.equals(문자열B)
 
-    // 7.
-
+    // 7. (조건A && 조건B ) , if/삼항 사용이유 : true/false 자료 다른 자료로 표현/흐름 변경
+    System.out.print("숫자를 입력하세요: "); int j = scan.nextInt();
+    System.out.println( (j % 2 == 1)&&(j % 7 == 0));
     
-    // 8.
+    // 8. if/삼항  : true / false 대신에 '합격' / '불합격'
+    System.out.print("1차점수를 입력하세요: "); int k = scan.nextInt();
+    System.out.print("2차점수를 입력하세요: "); int l = scan.nextInt();
+    System.out.println( k + l >= 150 ? "합격" : "불합격" );
 
-    // 9.
+    // 9. +연결연산자 : 더하기 할 값에 문자열이 포함되면 더하기 아닌 연결이 된다.
+    // 이름 = 변수선언: 타입명 변수 = 값 , 변수값수정 : 변수명 = 새로운값   , 변수는 하나의 자료/값 저장
+    System.out.print("이름을 입력하세요: "); String name = scan.next();
+    name += name.equals("유재석") ? "(방장)" : "";
+    System.out.println( name );
 
     // 10.
+    System.out.print("밑변: "); double base = scan.nextDouble();
+    System.out.print("높이: "); double height = scan.nextDouble();
+    System.out.println( (base * height / 2.0 ));
+
+    // 11.
+    System.out.print("섭씨: "); double 섭씨 = scan.nextDouble();
+    System.out.println( (섭씨 * 9.0 / 5.0) + 32 );
+
+    // 12.
+    System.out.print("년도: "); int 년도 = scan.nextInt();
+    System.out.println("2025년 기준 나이: " + (2025 - 년도) + "세");
+
+    // 13.       
+    System.out.print("키(cm)입력: "); double height1 = scan.nextDouble(); height1 /= 100.0;
+    System.out.print("몸무게(kg)입력: "); double weight = scan.nextDouble();
+    double result13 = weight / (height1 * height1);
+    System.out.printf("BMI 지수: %.2f" , result13);
+
+    // 14.
+    System.out.print("아이디: ");   String 아이디 = scan.next();
+    System.out.print("이메일: ");    String 이메일 = scan.next();
+    if(아이디.equals("admin") || 이메일.equals("admin@test.com")){System.out.println("관리자");}
+    else{System.out.println("일반 사용자");};
+
+    // 15. 삼항연산자 중첩
+    System.out.println("점수를 입력하세요:");
+    int score3 = scan.nextInt();
+    System.out.printf("등급: %c\n", score3>=90 && score3 <= 100 ? 'A' : score3 >= 80 && score3 < 90 ? 'B' : 'C');
+
+    // 16.
+    System.out.println("나이를 입력하세요:"); int age = scan.nextInt();
+System.out.println(age >= 20 && age <= 29 ? "이벤트 대상입니다." : "이벤트 대상이 아닙니다.");
+
 
     } //m e
 } // c e

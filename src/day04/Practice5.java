@@ -3,6 +3,7 @@ package day04;
 import java.util.Scanner;
 
 public class Practice5 {
+     Scanner scan = new Scanner(System.in)
     public static void main(String[] args) {
 
        

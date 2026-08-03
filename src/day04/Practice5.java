@@ -95,10 +95,10 @@ public class Practice5 {
          //10. 10/3 -> [java]3 [js]3.333    ,   3532100/100000 -> 353  -> 353/100 -> 3  
         int july1 = 3532100;    int july2 = 9123700;    int july3 = 5183400;    int july4 = 11738700;
         july1 /= 10000;         july2 /= 10000;         july3 /= 10000;         july4 /= 10000; 
-        for( int i = 1 ; i <= july1/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july1 +"만원");
-        for( int i = 1 ; i <= july2/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july2 +"만원");
-        for( int i = 1 ; i <= july3/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july3 +"만원");
-        for( int i = 1 ; i <= july4/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
+        for( int r = 1 ; r <= july1/100 ; r++ ){  System.out.print( "■" );  } System.out.println( july1 +"만원");
+        for( int r = 1 ; r <= july2/100 ; r++ ){  System.out.print( "■" );  } System.out.println( july2 +"만원");
+        for( int r = 1 ; r <= july3/100 ; r++ ){  System.out.print( "■" );  } System.out.println( july3 +"만원");
+        for( int r = 1 ; r <= july4/100 ; r++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
 
         // 11.
         int balance = 0; // 입금액, 반복문 밖에 선언한 이유는 입금액 초기화 1번 하기 위해서

@@ -98,8 +98,26 @@ public class Practice6 {
         
 
         // 10.
+        String[] carNumbers = {"210어7125", "142가7415", "888호8888", "931나8234"};
+        int[] usageMinutes = {65, 30, 140, 420};
 
-        // 11.
+        // [1] 차량번호 출력
+         // [1] 차량번호 출력 
+        for( int index = 0 ; index <= carNumbers.length-1; index++ ){
+            System.out.print( carNumbers[index] +": ");
+            // [2] 주차분 출력 
+            System.out.print( usageMinutes[index]+"분 " );
+            // [3] 주차요금 출력 
+            int fee = 1000;
+            if( usageMinutes[index] >= 30 ){
+                // 30분 제외하고 나누기 10 ( 일단위 제거 ) 곱하기 500원 
+                fee += ( usageMinutes[index]-30 ) / 10 * 500 ;
+                // 만약에 2만원 넘어가면 2만원으로 고정 아니면 그대로
+                fee = fee >= 20000 ? 20000 : fee; 
+            }
+            System.out.println( fee + "원" );
+        }
+    
         
     } // main end 
 } // class end 

@@ -67,7 +67,7 @@ public class Practice6 {
         String[] products = {"볼펜", "노트", "지우개"};
         System.out.println("구매할 상품명"); String 상품명 = scan.next();
         System.out.println("구매할 수량"); int 수량 = scan.nextInt();
-        boolean find = false;
+        boolean find = false; // false = 동일한 제품명 없다 , true 있다
         for ( int r = 0 ; r <= products.length - 1 ; r++) {
             if( 상품명.equals(products[r] ) ) { // 입력받은 상품명과 r번째 상품명과 같으면
                 find = true; // 동일한 제품명 찾음 기록
@@ -76,9 +76,26 @@ public class Practice6 {
                 } else { System.out.println("재고가 부족합니다.");}
             }
         }
+        if (find == false ) {System.out.println("없는 제품명 입니다.");};
 
 
         // 9.
+        String[] movieNames = {"히든페이스", "위키드", "글래디에이터2", "청설"};
+        int[] movieRatings = {8, 4, 7, 6};
+        for ( int t = 0; t <= movieNames.length - 1 ; t++) {
+            // [1] 영화 이름들을 하나씩 출력
+            String name = movieNames[t];
+            System.out.println( name );
+            // [2] 별점 출력 1~10
+            for ( int star = 1; star <= 10 ; star++) {
+                // 현재 별 보다 t번째 평점이 더 크면 
+                if (star <= movieRatings[t]) {
+                    System.out.println("★");
+                }else{System.out.println("☆");}
+            }
+            System.out.println(); // 줄바꿈
+        }
+        
 
         // 10.
 

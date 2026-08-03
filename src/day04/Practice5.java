@@ -92,24 +92,22 @@ public class Practice5 {
         } // w end
         System.out.println( count );
 
-        // 10.
-        int july1 = 3532100; int july2 = 91237000; int july3 = 5183400; int july4 = 11738700;
-        july1 /= 10000;      july2 /= 10000;       july3 /= 10000;      july4 /= 10000;  
-        for( int e = 1; i <= july1/100 ; i++) { System.out.println( "■"); } System.out.println( july1 +"만원");
-        for( int e = 1; i <= july2/100 ; i++) { System.out.println( "■"); } System.out.println( july2 +"만원");
-        for( int e = 1; i <= july3/100 ; i++) { System.out.println( "■"); } System.out.println( july3 +"만원");
-        for( int e = 1; i <= july4/100 ; i++) { System.out.println( "■"); } System.out.println( july4 +"만원");
+         //10. 10/3 -> [java]3 [js]3.333    ,   3532100/100000 -> 353  -> 353/100 -> 3  
+        int july1 = 3532100;    int july2 = 9123700;    int july3 = 5183400;    int july4 = 11738700;
+        july1 /= 10000;         july2 /= 10000;         july3 /= 10000;         july4 /= 10000; 
+        for( int i = 1 ; i <= july1/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july1 +"만원");
+        for( int i = 1 ; i <= july2/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july2 +"만원");
+        for( int i = 1 ; i <= july3/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july3 +"만원");
+        for( int i = 1 ; i <= july4/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
 
-      
+        // 11.
 
-
-        // 5.
-
-        // 5.
+        
 
     } // main end
 
-}// class end
+}// class endㅇ
+
 
 /*[실습] 제출용 /
 

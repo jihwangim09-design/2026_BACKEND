@@ -101,12 +101,33 @@ public class Practice5 {
         for( int i = 1 ; i <= july4/100 ; i++ ){  System.out.print( "■" );  } System.out.println( july4 +"만원");
 
         // 11.
+        int balance = 0; // 입금액, 반복문 밖에 선언한 이유는 입금액 초기화 1번 하기 위해서
+        for ( ; ; ){ // 무한루프
+            System.out.println("1:입금 | 2:출금 | 3:잔고 | 4:종료"); // 1. 무한루프 이용하여 무한 출력
+            int ch = scan.nextInt(); // 2. 무한루프 이용하여 무한 입력
+            // 3. 분기( if , 조건에 따라 서로 다른 코드 흐름 제어 )
+            if( ch == 1 ){
+                System.out.println("입금액: ");
+                balance += scan.nextInt(); // 새로운 값으로 입력받아 잔고에 더한다.
+            }
+            else if ( ch == 2){
+                System.out.println("출금액: ");
+                int 출금액 = scan.nextInt(); // 새로운 값으로 입력받아 잔고에서 뺀다.
+                if ( balance < 출금액 ){System.out.println("잔고부족");}
+                else { balance -= 출금액;}
+            }
+            else if ( ch == 3){
+                System.out.println("잔고: " +balance );
 
-        
+            }
+            else if ( ch == 4){
+                System.out.println("프로그램을 종료합니다.: ");
+                break;
+            }
+        } // for end
 
     } // main end
-
-}// class endㅇ
+}// class end
 
 
 /*[실습] 제출용 /

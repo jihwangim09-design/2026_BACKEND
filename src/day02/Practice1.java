@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Practice1 { // class s 
     // m+엔터 : main함수 
     public static void main(String[] args) { // main s 
-
+        
+        Scanner scan = new Scanner( System.in );
         // 1. so+엔터 : println함수 
         System.out.println( 25 ); System.out.println("홍길동" );
 
@@ -35,7 +36,7 @@ public class Practice1 { // class s
         System.out.println("====================================");
 
         // 8. 입력방법 : 1) Scanner객체생성 2) nextXXX()함수
-        Scanner scan = new Scanner( System.in );        // 1) 
+                // 1) 
         System.out.print("이름을 입력하세요: "); String 이름 = scan.next(); // 2) 적절한 nextXXX() 선택한다.
         System.out.print("나이를 입력하세요: "); int 나이 = scan.nextInt(); // 2) nextXXX() 반환되는 타입에 따라 변수의 타입 선정
         System.out.printf("%s님의 나이는 %d세 입니다.\n", 이름 , 나이 );
@@ -50,8 +51,19 @@ public class Practice1 { // class s
         // 10. nextChar() 제공하지 않는다. next().charAt(인덱스) : 해당인덱스의 문자1개 추출해주는함수 , 문자열은 배열이라서 한글자만 가져오기 가능
         System.out.print("성별을 입력하세요(남/여): "); char 성별 = scan.next().charAt(0);
         System.out.printf("입력하신 성별은 %s 입니다. \n" , 성별 );
-
+        
+        
         // 11. 직접 풀기 
+        System.out.println("--자기소개--");
+        System.out.println("이름을 입력하세요"); String q = scan.next();
+        System.out.println("나이를 입력하세요"); int w = scan.nextInt();
+        System.out.println("키를 입력하세요"); double e = scan.nextDouble();
+        System.out.println("프로그래머여부:"); boolean r = scan.nextBoolean();
+        /* 출력 */
+        System.out.printf("이름: %s \n" , q); 
+        System.out.printf("나이: %d \n" , w);
+        System.out.printf("키: %.1fcm \n" , e);
+        System.out.printf("프로그래머 여부: %b \n" , r);
         
         
 

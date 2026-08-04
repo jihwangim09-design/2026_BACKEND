@@ -71,7 +71,7 @@ public class Practice4 {
     */   
 
     // 7.
-    
+    System.out.println("역할을 입력하세요: "); 
 
     // 8.
 

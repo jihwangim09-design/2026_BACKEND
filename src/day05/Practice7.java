@@ -1,15 +1,164 @@
 package day05;
 
+import java.util.Scanner;
+
+import javax.script.ScriptContext;
+
 public class Practice7 {
     public static void main(String[] args) {
-        
-    } // m end
+    
+    // [1] 객체 생성
+    // 3. new 생성자명();
+    // 3. 타입 변수명 = new 생성자명();
 
+    Scanner scan = new Scanner(System.in);
+    
+    // 1. 
+    Book b1 = new Book();
+    Book b2 = new Book();
+    b1.title = "이것이 자바다"; b1.author = "신용권"; b1.price = 30000;
+    b2.title = "자바의 정석"; b2.author = "남궁석"; b2.price = 28000;
+    System.out.printf("%s %s %d \n" , b1.title , b1.author , b1.price );
+    System.out.printf("%s %s %d \n" , b2.title , b2.author , b2.price );
+
+    // 2.
+    Pet p1 = new Pet();
+    Pet p2 = new Pet();
+    p1.name = "초코"; p1.specie = "푸들"; p1.age = 3;
+    p2.name = "나비"; p2.specie = "코리안숏헤어"; p2.age = 5;
+    System.out.printf( " 이름: [%s] 종류: [%s] 나이: [%d]살 \n" , p1.name , p1.specie , p1.age );
+    System.out.printf( " 이름: [%s] 종류: [%s] 나이: [%d]살 \n" , p2.name , p2.specie , p2.age );
+
+    // 3.
+    Rectangle R1 = new Rectangle();
+    R1.width = 10;
+    R1.height = 5;
+    System.out.printf( "사각형의 넓이: [%d] \n" , R1.width*R1.height ); 
+
+    // 4.
+    BankAccount B1 = new BankAccount();
+    B1.accountNumber = "111-2222-3333";
+    B1.ownerName = "유재석";
+    B1.balance = 10000;
+    B1.balance += 5000;
+    System.out.printf("입금 후 잔액: [%d] \n" , B1.balance);
+    B1.balance -= 3000;
+    System.out.printf("출금 후 잔액: [%d] \n" , B1.balance);
+
+    // 5.
+    Product P1 = new Product();
+    Product P2 = new Product();
+    P1.name = "새우깡"; P1.price = 1500;
+    P2.name = "콜라"; P2.price = 2000;
+    if ( P1.price > P2.price ) {
+        System.out.printf(P1.name);
+    }else {System.out.println(P2.name);};
+
+    // 6.
+    Member M1 = new Member();
+    M1.id = "admin";
+    M1.isLogin = false;
+    System.out.printf("로그인 전 상태: [%b] \n" , M1.isLogin);
+    M1.isLogin = true;
+    System.out.printf("로그인 후 상태: [%b] \n" , M1.isLogin);
+
+
+
+    // 7.
+    Television T1 = new Television();
+    T1.channel = 7;
+    T1.volume = 20;
+
+    T1.channel = 11;
+    T1.volume = T1.volume - 2;
+    System.out.printf("채널: [%d] 볼륨: [%d] \n", T1.channel , T1.volume); 
+
+    // 8.
+    Player Pl1 = new Player();
+    Player Pl2 = new Player();
+    Pl1.name = "손흥민"; Pl1.power = 90; Pl1.speed = 95;
+    Pl2.name = "이강인"; Pl2.power = 85; Pl2.speed = 92;
+    if (Pl1.power + Pl1.speed > Pl2.power + Pl2.speed) {
+        System.out.printf(Pl1.name);
+    }else{System.out.println(Pl2.name);}
+
+    // 9.
+    MenuItem Me1 = new MenuItem();
+    MenuItem Me2 = new MenuItem();
+    MenuItem Me3 = new MenuItem();
+    Me1.name = "김치찌개"; Me1.price = 8000; Me1.isSignature = true;
+    Me2.name = "된장찌개"; Me2.price = 8000; Me2.isSignature = false;
+    Me3.name = "계란찜"; Me3.price = 3000; Me3.isSignature = false;
+    if (Me1.isSignature == true) {
+        System.out.printf("대표메뉴: [%s] 가격: [%d] \n" , Me1.name , Me1.price );
+    }
+    if (Me2.isSignature == true) {
+        System.out.printf("대표메뉴: [%s] 가격: [%d] \n" , Me2.name , Me2.price );
+    }
+    if (Me3.isSignature == true) {
+        System.out.printf("대표메뉴: [%s] 가격: [%d] \n" , Me3.name , Me3.price );
+    }
+    // 10.
+    UserProfile U = new UserProfile();
+    System.out.println("이름: "); String 이름 = scan.next();
+    System.out.println("나이: "); int 나이 = scan.nextInt();
+    System.out.println("MBTI: "); String MBTI = scan.next();
+    System.out.println("--- 프로필 ---");
+    System.out.println("이름: " + 이름);
+    System.out.println("나이: " + 나이);
+    System.out.println("MBTI: " + MBTI);
+
+    } // m end
 } // c end
+// [1] 객체 선언
+// 1. 클래스선언 : 기존 class{ } 밖에 새로운 클래스선언{ }
+// 2. 멤버변수선언 : {} 안에 멤버변수 선언
 class Book{
     String title;
     String author;
     int price;
+}
+class Pet{
+    String name;
+    String specie;
+    int age;
+}
+class Rectangle{
+    int width;
+    int height;
+}
+class BankAccount{
+    String accountNumber;
+    String ownerName;
+    int balance; 
+}
+class Product{
+    String name;
+    int price;
+}
+class Member{
+    String id;
+    Boolean isLogin;
+
+}
+class Television{
+    int channel;
+    int volume;
+}
+class Player{
+    String name;
+    int power;
+    int speed;
+}
+class MenuItem{
+    String name;
+    int price;
+    boolean isSignature;
+}
+class UserProfile{
+    String name;
+    int age;
+    String mbti;
 }
 
 /*[문제 1] Book 클래스를 만드세요. 이 클래스는 title(문자열), author(문자열), price(정수) 멤버 변수를 가집니다.

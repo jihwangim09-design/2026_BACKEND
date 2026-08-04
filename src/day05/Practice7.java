@@ -3,8 +3,13 @@ package day05;
 public class Practice7 {
     public static void main(String[] args) {
         
-    }
+    } // m end
 
+} // c end
+class Book{
+    String title;
+    String author;
+    int price;
 }
 
 /*[문제 1] Book 클래스를 만드세요. 이 클래스는 title(문자열), author(문자열), price(정수) 멤버 변수를 가집니다.

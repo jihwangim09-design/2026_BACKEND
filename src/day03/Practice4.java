@@ -7,28 +7,32 @@ public class Practice4 {
     
     Scanner scan = new Scanner(System.in);
 
-
+    /* 
     // 1.
     System.out.print("첫번째 점수: "); int 점수1 = scan.nextInt();
     System.out.print("두번째 점수: "); int 점수2 = scan.nextInt();
     if( 점수1 + 점수2 >= 90 ) {System.out.println("성공");}
     else{System.out.println("실패");}
+    */
 
+    /* 
     // 2.
     System.out.print("첫번째 정수: "); int 정수1 = scan.nextInt();
     System.out.print("두번째 정수: "); int 정수2 = scan.nextInt();
     if ( 정수1 > 정수2 ) {System.out.println("더 큰 수:" + 정수1);}
     else {System.out.println("더 큰 수:" + 정수2);}
+    */
 
-
+    /* 
     // 3.
     System.out.print("아이디: "); String 아이디 = scan.next();
     System.out.print("비밀번호: "); String 비밀번호 = scan.next();
     if( 아이디.equals("admin")&&비밀번호.equals("1234") )
     {System.out.println("로그인 성공");} 
     else {System.out.println("로그인 실패");}
+    */
     
-    
+    /*
     // 4.
     System.out.println("비밀번호: "); String pw = scan.next();
     int b = pw.length();
@@ -39,7 +43,9 @@ public class Practice4 {
     } else {
         System.out.println("보안등급 강");
     }
-
+    */
+       
+    /* 
     // 5.
     System.out.println("주민등록번호(-포함): "); String 주민등록번호 = scan.next();
     char a = 주민등록번호.charAt(7);
@@ -48,8 +54,11 @@ public class Practice4 {
     } else if ( a == '2' || a == '4') {
         System.out.println("여자");
     }
+    */
 
     // 6.
+    System.out.println("점수를 입력하세요: "); int 점수 = scan.nextInt();
+    if 
 
     // 7.
 

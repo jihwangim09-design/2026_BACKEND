@@ -25,9 +25,19 @@ public class Exam1 {
     System.out.println( s1.studentName ); // 2) 객체 저장하고 있는 변수명.멤버변수명하면 null이라고 나옴
 
     // 3] 객체내 멤버변수 값 수정 , (객체)변수명.멤버변수명 = 새로운값
-    s1.studentName = "유재석";
+    s1.studentName = "유재석";          System.out.println( s1.studentName);
+    s1.StudentID = 10;                System.out.println(s1.StudentID);
+
+    // *] 주의할점: new연산자 *1개 당* *1개의* 인스턴스 생성
+    Student s2 = new Student(); // 인스턴스생성 day05.Student@4aa298b7 101호
+    Student s3 = new Student(); // 인스턴스생성 day05.Student@7d4991ad 102호
+    Student s4 = s2;            // 인스턴스참조 day05.Student@4aa298b7 101호
+    System.out.println( s2 ); System.out.println( s3 ); System.out.println( s4 );
+    s2.studentName = "강호동"; // 101호 멤버변수 수정
+    System.out.println( s2.studentName); System.out.println( s4.studentName ); // s4가 s2를 참조해서 s2가 바뀌면 s4도 같이 바뀜 강호동
 
 
+    
     } // m ed
 } // c ed
 

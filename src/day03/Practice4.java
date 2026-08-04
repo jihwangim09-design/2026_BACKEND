@@ -56,11 +56,22 @@ public class Practice4 {
     }
     */
 
+    /* 
     // 6.
     System.out.println("점수를 입력하세요: "); int 점수 = scan.nextInt();
-    if 
+    if ( 점수 >= 900 ) {
+        System.out.println("A급 경품");
+    }else if ( 점수 >= 700 ) {
+        System.out.println("B급 경품");
+    }else if ( 점수 >= 500 ) {
+        System.out.println("C급 경품");
+    }else if ( 점수 < 500 ) {
+        System.out.println("참가상");
+    }
+    */   
 
     // 7.
+    
 
     // 8.
 

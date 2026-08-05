@@ -64,7 +64,21 @@ CREATE table test3{
     필드명1 TINYINT NOT NULL,   -- 해당 필드/속성에는 null을 저장할 수 없도록 설정 *값이 null 이면 오류발생*
     필드명2 SMALLINT UNIQUE ,   -- 해당 필드/속성에는 중복값을 저장할 수 없도록 설정 *값이 다른 레코드와 같다면 오류발생*
     필드명3 int DEFAULT 100 ,   -- 해당 필드/속성에 레코드(행) 추가시 기본값 10 대입된다. *값이 다른 레코드와 같다면 오류발생*
-    필드명4 DATETIME DEFAULT now(), -- 예) 레코드 삽입시 현재날짜/시간now() 자동 대입
+    필드명4 DATETIME DEFAULT now(), -- 예) 레코드 삽입시 현재날짜/시간now() 자동 대입된다.
+    필드명5 BIGINT AUTO_INCREMENT ,
+    constraint PRIMARY key( 필드명5 ) -- 특정 필드/속성 pk로 설정한다.
+    -- AUTO_INCREMENT : 레코드(행) 삽입 시 자동으로 번호 순서번호 설정 , 1 2 3 4 5 6 ~
+    -- PRIMARY ket(pk) : 기본/식별 키 , 식별가능한 고유한 값을 가지는 필드 ( not null + unique 내장됨 )
+        -- 주로 쓰이는 곳 : 학번,           사번 ,            ~~코드/번호들 등등
+    -- FOREIGN key(fk): 참조/외래 키 (pk가 다른테이블에 위치한 경우), 다른 테이블의 기본키를 참조하는 키 
+};      -- 주로 쓰이는 곳 : 수강신청한학번,    급여지급사번 ,      판매된 제품 코드 등등
+        -- 참조 옵션 : PK가 삭제/수정된 경우 FK 어떻게??
+            -- on delete/update casecade : pk가 삭제/수정되면 fk도 같이 삭제/수정
+            -- on delete/update set null : pk가 삭제/수정되면 fk은 null로 수정
+            -- on delete/update restrict : (생략시 기본값) pk가 fk로부터 참조 중이면 삭제/수정 불가능
 
-}
+CREATE table test4( 필드명1 BIGINT, constraint FOREIGN KEY( 필드명1 ) REFERENCES test3(필드명5) ON delete
+
+
+);
 

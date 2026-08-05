@@ -70,7 +70,10 @@ public class Practice7 {
     M1.isLogin = true;
     System.out.printf("로그인 후 상태: [%b] \n" , M1.isLogin);
 
-    // 7.
+
+    // 7. 타입(자료형)이란? 자료의 구분
+    // 자료란? 데이터들, 리터럴/상수 ( 3 , 3.14 , 'A' , true )
+    // 기본타입8가지 vs 참조타입(배열,객체)
     Television T1 = new Television();
     T1.channel = 7;
     T1.volume = 20;

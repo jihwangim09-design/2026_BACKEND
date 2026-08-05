@@ -11,6 +11,8 @@ public class Practice7 {
     // 3. new 생성자명();
     // 3. 타입 변수명 = new 생성자명();
 
+
+
     Scanner scan = new Scanner(System.in);
     
     // 1. 
@@ -54,6 +56,12 @@ public class Practice7 {
         System.out.printf(P1.name);
     }else {System.out.println(P2.name);};
 
+    // -- [6] 클래스생성시 주의할점;
+    // -- 1) 동일한 패키지(내) 동일한 클래스명은 중복 불가능
+    // -- src(개발자코드 . java) ---> bin(컴파일/번역코드 .class)
+    // -- 2) 첫글자는 대문자 시작
+    // -- 3) 클래스 1개 당 .java 파일 1개 관리 권장 (*디자인패턴*)
+
     // 6.
     Member M1 = new Member();
     M1.id = "admin";
@@ -61,8 +69,6 @@ public class Practice7 {
     System.out.printf("로그인 전 상태: [%b] \n" , M1.isLogin);
     M1.isLogin = true;
     System.out.printf("로그인 후 상태: [%b] \n" , M1.isLogin);
-
-
 
     // 7.
     Television T1 = new Television();
@@ -160,11 +166,7 @@ class UserProfile{
     int age;
     String mbti;
 }
-// -- [6] 클래스생성시 주의할점;
-// -- 1) 동일한 패키지(내) 동일한 클래스명은 중복 불가능
-// -- src(개발자코드 . java) ---> bin(컴파일/번역코드 .class)
-// -- 2) 첫글자는 대문자 시작
-// -- 3) 클래스 1개 당 .java 파일 1개 관리 권장
+
 
 
 

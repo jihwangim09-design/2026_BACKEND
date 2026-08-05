@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS mvdb0805; # [1] 데이터베이스 삭제 # ctrl+엔터 (맥북은 커맨더+엔터)
+DROP DATABASE IF EXISTS mydb0805; # [1] 데이터베이스 삭제 # ctrl+엔터 (맥북은 커맨더+엔터)
 
 CREATE DATABASE mydb0805; #[2] 데이터베이스 생성
 
@@ -60,7 +60,7 @@ DESCRIBE test2; -- 테이블 속성 확인
 #---------------------------------------------------------------------------------#
 # 속성/필드 제약조건
 
-CREATE table test3{
+CREATE table test3(
     필드명1 TINYINT NOT NULL,   -- 해당 필드/속성에는 null을 저장할 수 없도록 설정 *값이 null 이면 오류발생*
     필드명2 SMALLINT UNIQUE ,   -- 해당 필드/속성에는 중복값을 저장할 수 없도록 설정 *값이 다른 레코드와 같다면 오류발생*
     필드명3 int DEFAULT 100 ,   -- 해당 필드/속성에 레코드(행) 추가시 기본값 10 대입된다. *값이 다른 레코드와 같다면 오류발생*
@@ -71,14 +71,40 @@ CREATE table test3{
     -- PRIMARY ket(pk) : 기본/식별 키 , 식별가능한 고유한 값을 가지는 필드 ( not null + unique 내장됨 )
         -- 주로 쓰이는 곳 : 학번,           사번 ,            ~~코드/번호들 등등
     -- FOREIGN key(fk): 참조/외래 키 (pk가 다른테이블에 위치한 경우), 다른 테이블의 기본키를 참조하는 키 
-};      -- 주로 쓰이는 곳 : 수강신청한학번,    급여지급사번 ,      판매된 제품 코드 등등
+);      -- 주로 쓰이는 곳 : 수강신청한학번,    급여지급사번 ,      판매된 제품 코드 등등
         -- 참조 옵션 : PK가 삭제/수정된 경우 FK 어떻게??
             -- on delete/update casecade : pk가 삭제/수정되면 fk도 같이 삭제/수정
             -- on delete/update set null : pk가 삭제/수정되면 fk은 null로 수정
             -- on delete/update restrict : (생략시 기본값) pk가 fk로부터 참조 중이면 삭제/수정 불가능
 
-CREATE table test4( 필드명1 BIGINT, constraint FOREIGN KEY( 필드명1 ) REFERENCES test3(필드명5) ON delete
-
-
+CREATE table test4( 필드명1 BIGINT, 
+constraint FOREIGN KEY( 필드명1 ) REFERENCES test3(필드명5) ON delete CASCADE on update CASCADE
 );
 
+DESCRIBE test4;
+
+# 예제 회원제 게시판 서비스 --------------------------------#
+
+drop DATABASE if EXISTS boardService0805; #1) 데이터베이스 존재하면 삭제한다.
+
+CREATE DATABASE boardService0805; #2) 데이터베이스 생성한다.
+
+use boardService0805; #3) 데이터베이스 활성화한다.
+
+CREATE table member( #4 ) 회원테이블 생성한다.
+    mno int AUTO_INCREMENT , -- 자동회원번호 
+    constraint PRIMARY KEY ( mno ) , --회원번호 pk 설정
+    mid varchar(30) not null UNIQUE , -- 회원아이디 이면서 최대 30글자, 공백불가능, 중복불가능 설정
+    mpwd varchar(20) not null , --회원비밀번호 이면서 최대20글자 , 공백불가능 , 중복가능 설정
+    mname varchar(10) not null , --회원닉네임
+    mdate datetime DEFAULT now() --회원가입날짜/시간 , 현재날짜/시간 자동으로 기본값 설정
+);
+create table board( #5) 게시물테이블 생성한다.
+    bno int AUTO_INCREMENT ,
+    constraint PRIMARY key( bno ) , -- 게시물번호 pk 설정 * 테이블1개당 pk1개이상 권장 *
+    btitle VARCHAR(255) , -- 게시물제목
+    bcontent longtext , -- 게시물내용 , 대용량(사진)포함한 최대 4G 까지
+    bdate DATETIME DEFAULT now() , -- 게시물작성일
+    bview int DEFAULT 0 , -- 조회수
+    mno int , --작성자(mid/회원아이디가 아니고 mno/회원번호) , 관례적으로 PK-FK 필드명 동일
+    constraint FOREIGN KEY( mno_fk ) REFERENCES member( mno_pk )

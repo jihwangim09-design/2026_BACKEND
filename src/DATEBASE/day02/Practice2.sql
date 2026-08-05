@@ -1,23 +1,40 @@
 
 -- 아래 문제는 'practice2' 데이터베이스 생성 후 진행 합니다.
--- [문제 1]아래 조건에 맞는 members 테이블을 생성하는 SQL을 작성하세요.
--- 테이블명: members
--- 컬럼 정보
--- member_id (회원번호): 정수, Primary Key, 자동 증가
--- member_name (회원이름): 문자열(50), NULL 허용 안함
--- email (이메일): 문자열(100), Unique, NULL 허용 안함
--- join_date (가입일): 날짜/시간, Default 현재 날짜/시
--- is_active (활성여부): 논리형(bool), Default true
+DROP DATABASE IF EXISTS practice2;
+CREATE DATABASE practice2;
+show DATABASES;
+USE practice2;
 
--- [문제 2]
--- 아래 조건에 맞는 products 테이블을 생성하는 SQL을 작성하세요.
--- 테이블명: products
--- 컬럼 정보
--- product_id (상품번호): 정수, Primary Key, 자동 증가
--- product_name (상품명): 문자열(100), NULL 허용 안함
--- price (가격): 정수, unsigned, NULL 허용 안함
--- stock (재고수량): 정수, Default 0, NULL 허용 안함
--- created_at (등록일): 날짜/시간, Default 현재 날짜/시간
+-- 1.
+CREATE table members(
+    member_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY( member_id ) ,
+    member_name VARCHAR(50) NOT NULL ,
+    email VARCHAR(100) UNIQUE NOT NULL ,
+    join_date DATETIME DEFAULT now() ,
+    is_active BOOLEAN DEFAULT true
+);
+DESCRIBE products;
+
+-- 2.
+CREATE TABLE products(
+    product_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (product_id) ,
+    product_name VARCHAR(100) NOT NULL ,
+    price int UNSIGNED NOT NULL ,
+    stock int DEFAULT 0 NOT NULL ,
+    created_at DATETIME DEFAULT now()
+);
+
+DESCRIBE products;
+
+CREATE Table orders(
+    order_id BIGINT AUTO_INCREMENT ,
+    constraint PRIMARY KEY (orders) ,
+    member_id int ,
+    constraint FOREIGN KEY (members_id) REFERENCES members( member_id ), 
+    
+)
 
 -- [문제 3]
 -- 아래 조건에 맞는 orders 테이블을 생성하는 SQL을 작성하세요.

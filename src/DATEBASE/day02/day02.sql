@@ -93,11 +93,11 @@ use boardService0805; #3) 데이터베이스 활성화한다.
 
 CREATE table member( #4 ) 회원테이블 생성한다.
     mno int AUTO_INCREMENT , -- 자동회원번호 
-    constraint PRIMARY KEY ( mno ) , --회원번호 pk 설정
+    constraint PRIMARY KEY ( mno ) , -- 회원번호 pk 설정
     mid varchar(30) not null UNIQUE , -- 회원아이디 이면서 최대 30글자, 공백불가능, 중복불가능 설정
-    mpwd varchar(20) not null , --회원비밀번호 이면서 최대20글자 , 공백불가능 , 중복가능 설정
-    mname varchar(10) not null , --회원닉네임
-    mdate datetime DEFAULT now() --회원가입날짜/시간 , 현재날짜/시간 자동으로 기본값 설정
+    mpwd varchar(20) not null , -- 회원비밀번호 이면서 최대20글자 , 공백불가능 , 중복가능 설정
+    mname varchar(10) not null , -- 회원닉네임
+    mdate datetime DEFAULT now() -- 회원가입날짜/시간 , 현재날짜/시간 자동으로 기본값 설정
 );
 create table board( #5) 게시물테이블 생성한다.
     bno int AUTO_INCREMENT ,
@@ -106,5 +106,8 @@ create table board( #5) 게시물테이블 생성한다.
     bcontent longtext , -- 게시물내용 , 대용량(사진)포함한 최대 4G 까지
     bdate DATETIME DEFAULT now() , -- 게시물작성일
     bview int DEFAULT 0 , -- 조회수
-    mno int , --작성자(mid/회원아이디가 아니고 mno/회원번호) , 관례적으로 PK-FK 필드명 동일
-    constraint FOREIGN KEY( mno_fk ) REFERENCES member( mno_pk )
+    mno int , -- 작성자(mid/회원아이디가 아니고 mno/회원번호) , 관례적으로 PK-FK 필드명 동일
+    constraint FOREIGN KEY( mno ) REFERENCES member( mno ) 
+        on delete CASCADE -- 회원이 탈퇴/삭제 하면 그 회원이 작성한 게시물도 같이 삭제 
+);
+

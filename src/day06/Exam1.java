@@ -18,7 +18,10 @@ public class Exam1 {
         p1.model = "갤럭시"; // 객체내 멤버변수 초기화
         
         // [2] 정의생성자로 객체 생성 , new 생성자명( 값1 , 값2 );
-        Phone p2 = new Phone( model:"아이폰" , color:"파랑" );
+        Phone p2 = new Phone("아이폰", "파랑");
+
+        // [3] 정의생성자로 객체 생성
+        Phone p3 = new Phone("갤럭시탭", "블랙", 36000);
 
 
 
@@ -29,6 +32,11 @@ public class Exam1 {
 } // c ed 
 
 class Phone{
+    // 선언되는 변수 위치에 따라 이름이 다르다
+    // 1)지역변수 : if/for/func(함수) { }안에서 선언된 변수
+    // 2)멤버변수 : 클래스/설계도{ }안에서 선언되고 객체(인스턴스)내 변수
+    //          this: 해당 생성자/메소드 호출한 객체(인스턴스) 가리킴
+    // 3)매개변수 : 생성자/메소드 호출하면서 인수값들을 저장하는 변수
     // *** 클래스 가족(멤버들) ***
     // 1. 멤버변수
     String model;
@@ -40,13 +48,15 @@ class Phone{
     //     -> 오버로딩(매개변수 계수/타입/순서 다르면) 중복 가능
     // this란? 멤버변수식별,
     //     -> 매개변수명이랑 멤버변수명 같을 경우 멤버변수명 앞에 this
+    // 매개변수와 인자값의 타입/개수는 일치해야함
     // 1) 기본생성자 : 매개변수가 없는
     Phone( ){ }     // Phone( ){ } = 얘를 기본 생성자라고 함
     // 2) 정의생성자 : 매개변수가 있는
     Phone( String model, String color ){
-        this.model = model;
+        this.model = model; // 왼쪽 model이 멤버변수 , 오른쪽 model이 매개변수 매개변수 이름을 model이라고 지어서 둘다 매개변수로 model로 인식하기 때문에 this를 붙힘
         this.color = color;
     }
+    // 3)
     Phone( String model, String color , int 가격 ){
         this.model = model;
         this.color = color;

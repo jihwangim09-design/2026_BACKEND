@@ -24,9 +24,8 @@ public class Practice8 {
     Goods G2 = new Goods("콜라", 2000);
     System.out.println();
 
-
-
     // 5.
+
 
     } // m ed
 } // c ed
@@ -81,5 +80,9 @@ class Goods{
         this.price = price;
     }
 
+}
+
+class Member{
+    
 }
     

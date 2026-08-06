@@ -61,7 +61,6 @@ public class Minipj1 {
 }
 
 
-
 class Study{
     int contentNo;
     String title;

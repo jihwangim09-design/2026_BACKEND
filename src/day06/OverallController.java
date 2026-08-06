@@ -60,3 +60,4 @@ class Post{
         this.content = content;
     }
 }
+

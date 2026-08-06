@@ -19,6 +19,11 @@ public class Practice8 {
     System.out.println(B1.accountNumber + "," + B1.awnerName + "," + B1.balance);
 
     // 4.
+    Goods G1 = new Goods();
+    System.out.println(G1.name + "," + G1.price);
+    Goods G2 = new Goods("콜라", 2000);
+    System.out.println();
+
 
 
     // 5.
@@ -66,6 +71,15 @@ class Goods{
     String name;
     int price;
 
-    
+    Goods(){
+        name = "미정";
+        price = 0;
+    }
+
+    Goods(String name , int price) {
+        this.name = name;
+        this.price = price;
+    }
+
 }
     

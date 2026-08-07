@@ -74,9 +74,9 @@ public class Practice4 {
     System.out.println("역할을 입력하세요: "); String 역할 = scan.next();
     if (역할.equals("admin")) {
         System.out.println("모든 기능에 접근할 수 있습니다.");
-    }else if(역할 == "editor") {
+    }else if(역할.equals("editor")) {
         System.out.println("콘텐츠 수정 및 생성 기능에 접근할 수 있습니다.");
-    }else if(역할 == "viewer") {
+    }else if(역할.equals("viewer")) {
         System.out.println("콘텐츠 조회만 가능합니다.");
     }else {System.out.println("정의되지 않은 역할입니다.");}
 

@@ -108,5 +108,9 @@ SELECT * FROM member where mname != "블랙핑크";
 SELECT * FROM member WHERE not mname = "블랙핑크"; -- 블랙핑크이면 반대(not부정)
 SELECT * FROM member WHERE mheight <= 162; -- '키'속성값이 162 이하이면
 SELECT * FROM member WHERE mheight >= 165 and mheight <= 170; -- '키'속성값이 165~170 사이
-
+SELECT * FROM member WHERE mheight BETWEEN 165 and 170; -- 속성명 between 시작값 and 끝값 , 사이/범위 값
+SELECT * FROM member WHERE maddr = "경기" or maddr = "전남" or maddr = "경남"; -- '지역'속성값이 3개중 하나이면
+SELECT * FROM member WHERE maddr in( "경기" , "전남" , "경남" ); -- 속성명 in(값1, 값2, 값3 )
+SELECT * FROM member WHERE mphone1 = null; -- 데이터베이스 애서 null 처리방법
+SELECT * FROM member WHERE mphone1 is null; -- 주의할점 : =null[x] 대신에 is null[o] 
 

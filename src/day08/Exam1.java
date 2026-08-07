@@ -4,11 +4,20 @@ import day08.package1.A;
 
 public class Exam1 {
     public static void main(String[] args) {
-
+        // [1] 접근제한된 변수
         A a = new A();
         a.공개변수 = 3; // publice 이라서 가능
         // a.비공개변수 = 3;  private 이라서 불가능
         // a.일반변수; 
+
+        a.공개메소드();
+        // a.비공개메소드();
+        // a.일반메소드();
+
+        // [3] 비공개된 생성자로 객체 생성 안한다.
+        // B b = new B();
+
+        
         /*
             접근제한자 : 클래스,멤버변수,메소드,생성자 등 호출 (폴더/클래스)접근제한 만들기
                 1) 종류

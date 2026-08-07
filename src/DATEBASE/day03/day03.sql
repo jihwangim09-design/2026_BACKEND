@@ -113,7 +113,6 @@ SELECT * FROM member WHERE maddr = "경기" or maddr = "전남" or maddr = "경�
 SELECT * FROM member WHERE maddr in( "경기" , "전남" , "경남" ); -- 속성명 in(값1, 값2, 값3 )
 
 -- 데이터베이스에서 null 처리방법,  = null 대신에 is null , != null 대신에 is not null
-
 SELECT * FROM member WHERE mphone1 = null; -- 데이터베이스 애서 null 처리방법
 SELECT * FROM member WHERE mphone1 is null; -- 주의할점 : =null[x] 대신에 is null[o] 
 
@@ -122,4 +121,3 @@ SELECT * FROM member WHERE mname like '에이%'; -- 에이로 시작하는 모�
 SELECT * FROM member WHERE mname like '에이_'; -- 에이로 시작하는 3글자
 SELECT * FROM member WHERE mname like "%이%"; -- '이'가 포함된 모든 문자
 SELECT * FROM member WHERE mname like "_이__"; -- 두번째 글자가 '이'인 4글자
-SELECT * FROM 

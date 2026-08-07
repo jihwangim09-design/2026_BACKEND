@@ -1,4 +1,11 @@
+package test;
 import java.util.Scanner;
+/*
+    OverallController : 입력 Scanner/출력Print 담당 하는
+    Post: 자료들의 모델/타입/형식
+
+*/
+
 public class OverallController {
     public static void main(String[] args) {
         OverallRepository repository = new OverallRepository();
@@ -34,8 +41,12 @@ public class OverallController {
 }
 // 데이터 저장 및 반환(조회) 비즈니스 로직 전담 클래스
 class OverallRepository {
-
+    // DB 대신에 배열 이용한 여러개 자료 저장 용도
     Post[] posts = new Post[100];
+
+    // 1. 저장
+
+    // 2. 전체출력
 
     // 게시물 저장
     boolean save(Post post) {
@@ -53,8 +64,10 @@ class OverallRepository {
     }
 }
 class Post {
+    // 멤버변수
     String content;
     String writer;
+    // 생성자 - 클래스내 오른쪽 클릭 -> 소스작업 
     Post() {}
     Post(String content, String writer) {
         this.content = content;

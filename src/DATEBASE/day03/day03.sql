@@ -89,16 +89,16 @@ INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
 
 # [1] as 별칭 키워드 , 조회 결과의 속성명 변경 , as 생략하고 띄어쓰기 사용가능
 SELECT mid from member; -- member 테이블의 mid 속성 레코드조회
-SELECT mid as 회원아이디 from members; -- 조회 결과 mid속성명을 회원아이디 별칭
-SELECT mid as 회원아이디 from members as 회원테이블; -- SQL내 속성명/테이블명 별칭
-SELECT mid 회원아이디 from members 회원테이블; -- as 생략하고 띄어씍 별칭
+SELECT mid as 회원아이디 from member; -- 조회 결과 mid속성명을 회원아이디 별칭
+SELECT mid as 회원아이디 from member as 회원테이블; -- SQL내 속성명/테이블명 별칭
+SELECT mid 회원아이디 from member 회원테이블; -- as 생략하고 띄어씍 별칭
 
 # [2] distinct, 조회 결과의 속성값 중복 제거
 SELECT DISTINCT maddr from member; 
 
 # [3] 산술연산자 : + 더하기 -빼기 *곱하기 /나누기 div몫 mod나머지
-SELECT mnumber 인원수, mnumber+3 더하기, mnumber-3 뺴기, nnumber/3 나누기,
-       mnember*3 곱하기, mnumber div 3 몫, mnumber mod 3 from member;
+SELECT mnumber 인원수, mnumber+3 더하기, mnumber-3 뺴기, mnumber/3 나누기,
+       mnumber*3 곱하기, mnumber div 3 몫, mnumber mod 3 from member;
 
 # [4] 비교연산자 : =같다 !=같지않다 >초과 <미만 >=이상 <=이하
 # [5] 논리연산자 : and이면서 or이거나 not부정
@@ -111,6 +111,15 @@ SELECT * FROM member WHERE mheight >= 165 and mheight <= 170; -- '키'속성값�
 SELECT * FROM member WHERE mheight BETWEEN 165 and 170; -- 속성명 between 시작값 and 끝값 , 사이/범위 값
 SELECT * FROM member WHERE maddr = "경기" or maddr = "전남" or maddr = "경남"; -- '지역'속성값이 3개중 하나이면
 SELECT * FROM member WHERE maddr in( "경기" , "전남" , "경남" ); -- 속성명 in(값1, 값2, 값3 )
+
+-- 데이터베이스에서 null 처리방법,  = null 대신에 is null , != null 대신에 is not null
+
 SELECT * FROM member WHERE mphone1 = null; -- 데이터베이스 애서 null 처리방법
 SELECT * FROM member WHERE mphone1 is null; -- 주의할점 : =null[x] 대신에 is null[o] 
 
+-- 문자열 패턴: 속성명 like "문자패턴" , %:모든문자대응 , _:개수만큼문자대응
+SELECT * FROM member WHERE mname like '에이%'; -- 에이로 시작하는 모든 문자
+SELECT * FROM member WHERE mname like '에이_'; -- 에이로 시작하는 3글자
+SELECT * FROM member WHERE mname like "%이%"; -- '이'가 포함된 모든 문자
+SELECT * FROM member WHERE mname like "_이__"; -- 두번째 글자가 '이'인 4글자
+SELECT * FROM 

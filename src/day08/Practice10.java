@@ -2,10 +2,27 @@ package day08;
 
 public class Practice10 {
     public static void main(String[] args) {
+        
+        // 1.
         Member m = new Member();
         m.setId("admin");
         String id = m.getId();
         System.out.println(id);
+
+        // 2.
+        Score s = new Score();
+        s.setScore(80);
+        s.setScore(120);
+        System.out.println(score);
+
+
+        // 3.
+
+        // 4.
+
+        // 5.
+
+        // 6.
     }
 
 }
@@ -15,9 +32,18 @@ class Member{
     public void setId(String id) {
         this.id = id;
     }
-
     public String getId() {
         return id;
+    }
+}
+class Score{
+    private int score ;
+
+
+    public void setScore( int score ) {
+        if ( score >= 0 || score <= 100 ){
+            this.score = score;
+        }else {System.out.println("유효하지 않은 점수입니다.");}
     }
 }
 /*[문제 1] Member 클래스를 만드세요.

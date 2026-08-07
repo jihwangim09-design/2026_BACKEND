@@ -70,6 +70,7 @@ public class Practice4 {
     }
     */   
 
+    /*
     // 7.
     System.out.println("역할을 입력하세요: "); String 역할 = scan.next();
     if (역할.equals("admin")) {
@@ -79,16 +80,74 @@ public class Practice4 {
     }else if(역할.equals("viewer")) {
         System.out.println("콘텐츠 조회만 가능합니다.");
     }else {System.out.println("정의되지 않은 역할입니다.");}
+     */
 
+    /*
     // 8.
+    System.out.println("나이를 입력하세요."); int age = scan.nextInt();
+    if ( age >= 65 ){
+        System.out.println("3000원");
+    }else if( age >= 20) {
+        System.out.println("10000원");
+    }else if( age >= 8) {
+        System.out.println("5000원");
+    }else {System.out.println("무료");}
+    */
 
+    /*
     // 9.
+    System.out.println("점수를 입력하세요."); int 점수 = scan.nextInt();
+    if ( 점수 >= 90 ){
+        System.out.println("A등급");
+    }else if ( 점수 >= 80 ){
+        System.out.println("B등급");
+    }else if ( 점수 >= 70 ){
+        System.out.println("C등급");
+    }else {System.out.println("재시험");}
+    */
 
+    /*
     // 10.
+    System.out.println("총구매 금액: "); int 금액 = scan.nextInt();
+    if ( 금액 >= 50000) {
+        System.out.println(금액 - (금액 / 10) + "원" );
+    }else if( 금액 >= 30000 ) {
+        System.out.println(금액 - (금액 / 5) + "원" );
+    }else if( 금액 >= 10000 ) {
+        System.out.println(금액 - (금액 / 1) + "원" );
+    }else {System.out.println(금액);}
+    */
 
+    /*
     // 11.
+    System.out.println("월(1~12)을 입력하세요."); int age = scan.nextInt();
+    if ( age == 3 || age == 4 || age == 5) {
+        System.out.println("봄");
+    }else if ( age == 6 || age == 7 || age == 8) {
+        System.out.println("여름");
+    }else if ( age == 9  || age == 10 || age == 11) {
+        System.out.println("가을");
+    }else if ( age == 12 || age == 1 || age == 2) {
+        System.out.println("겨울");
+    }else{System.out.println("잘못된 월입니다.");}
+    */
 
+    /* 
     // 12.
+    System.out.println("정수1 입력: "); int a = scan.nextInt();
+    System.out.println("정수2 입력: "); int b = scan.nextInt();
+    System.out.println("정수3 입력: "); int c = scan.nextInt();
+    int max = a;
+    if (b > max) {
+        max = b;
+    }
+    if (c > max) {
+        max = c;
+    }
+    System.out.println("가장큰수는: " + max);
+    */
+        
+
 
     // 13.
 

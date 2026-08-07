@@ -13,7 +13,7 @@ public class Practice10 {
         Score s = new Score();
         s.setScore(80);
         s.setScore(120);
-        System.out.println(score);
+        System.out.println(Score);
 
 
         // 3.

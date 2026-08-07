@@ -146,12 +146,36 @@ public class Practice4 {
     }
     System.out.println("가장큰수는: " + max);
     */
-        
 
-
+    /*
     // 13.
+    System.out.println("연도를 입력하세요: "); int a = scan.nextInt();
+    if (( a % 4 == 0 && a % 100 != 0 ) || ( a % 400 == 0)) {
+        System.out.println(a+"년은 윤년입니다.");
+    }else {System.out.println(a+"년은 평년입니다.");}
+     */
 
     // 14.
+    System.out.println("정수1 입력: "); int a = scan.nextInt();
+    System.out.println("정수2 입력: "); int b = scan.nextInt();
+    System.out.println("정수3 입력: "); int c = scan.nextInt();
+    if( a < b && a <b ){
+        if ( b < c){
+            System.out.println(a + "," + b + "," + c);
+        }else{System.out.println(a + "," + c + "," + b);}
+    }else if (b < a && b < c) {
+            if (a < c) {
+                System.out.println(b + "," + a + "," + c);
+            } else {
+                System.out.println(b + "," + c + "," + a);
+            }
+    }else{
+            if (a < b) {
+                System.out.println(c + "," + a + "," + b);
+            } else {
+                System.out.println(c + "," + b + "," + a);
+            }
+        }
 
     // 15.
 

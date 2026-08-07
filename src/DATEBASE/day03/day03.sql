@@ -97,4 +97,16 @@ SELECT mid 회원아이디 from members 회원테이블; -- as 생략하고 띄�
 SELECT DISTINCT maddr from member; 
 
 # [3] 산술연산자 : + 더하기 -빼기 *곱하기 /나누기 div몫 mod나머지
+SELECT mnumber 인원수, mnumber+3 더하기, mnumber-3 뺴기, nnumber/3 나누기,
+       mnember*3 곱하기, mnumber div 3 몫, mnumber mod 3 from member;
+
+# [4] 비교연산자 : =같다 !=같지않다 >초과 <미만 >=이상 <=이하
+# [5] 논리연산자 : and이면서 or이거나 not부정
+SELECT * FROM member where mname = "블랙핑크";
+SELECT * FROM member where mnumber = 4;
+SELECT * FROM member where mname != "블랙핑크";
+SELECT * FROM member WHERE not mname = "블랙핑크"; -- 블랙핑크이면 반대(not부정)
+SELECT * FROM member WHERE mheight <= 162; -- '키'속성값이 162 이하이면
+SELECT * FROM member WHERE mheight >= 165 and mheight <= 170; -- '키'속성값이 165~170 사이
+
 

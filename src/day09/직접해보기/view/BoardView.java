@@ -53,13 +53,24 @@ public class BoardView {
     // [3] 명단 수정 입출력
     public void update( ){
         System.out.print("찾을 전화번호: "); String 전화번호 = scan.next();
-        System.out.print("수정할 방문인원수: "); int 방문인원수 = scan.nextInt();
-        int 수정인원수 = scan.nextInt();
+        System.out.print("수정할 방문인원수: "); int 수정인원수 = scan.nextInt();
+        
         
         boolean result = bc.update( 전화번호, 수정인원수 );
 
         if( result ){System.out.println("수정성공");}
         else{System.out.println("수정실패");}
+    }
+
+    // [4] 명단 삭제 입출력
+    public void delete( ){
+        System.out.println("찾을 전화번호: "); String 전화번호 = scan.next();
+        System.out.println("삭제할 방문인원수: "); int 삭제인원수 = scan.nextInt();
+
+        boolean result = bc.delete( 전화번호, 삭제인원수 );
+
+        if( result ){System.out.println("삭제성공");}
+        else{System.out.println("삭제실패");}
     }
 
 } // class end 

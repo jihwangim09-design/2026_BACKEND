@@ -38,5 +38,15 @@ public class BoardDao {
         }
         return false;
     }
+    // [4] 명단 삭제
+    public boolean delete(String phone, int deleteReady){
+        for(BoardDto dto : boardList){
+            if(dto.getPhone().equals(phone)){
+                boardList.remove(dto);
+                return true;
+            }
+        }
+        return false;
+    }
 
 } // class end 

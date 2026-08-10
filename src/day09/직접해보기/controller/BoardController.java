@@ -39,6 +39,12 @@ public class BoardController {
         return result;
     }
     
+    // [4] 명단 삭제 컨트롤러
+    public boolean delete(String phone, int deleteReady){
+        boolean result = bd.delete(phone, deleteReady);
+        return result;
+    }
+    
 
 
 } // class end 

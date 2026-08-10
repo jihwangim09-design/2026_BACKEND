@@ -40,8 +40,8 @@ public class BoardController {
     }
     
     // [4] 명단 삭제 컨트롤러
-    public boolean delete(String phone, int deleteReady){
-        boolean result = bd.delete(phone, deleteReady);
+    public boolean delete(String phone){
+        boolean result = bd.delete(phone);
         return result;
     }
     

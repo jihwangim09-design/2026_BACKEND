@@ -39,7 +39,7 @@ public class BoardDao {
         return false;
     }
     // [4] 명단 삭제
-    public boolean delete(String phone, int deleteReady){
+    public boolean delete(String phone){
         for(BoardDto dto : boardList){
             if(dto.getPhone().equals(phone)){
                 boardList.remove(dto);

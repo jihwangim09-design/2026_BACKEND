@@ -70,7 +70,7 @@ public class BoardView {
         boolean result = bc.delete(전화번호);
 
         if( result ){System.out.println("삭제성공");}
-        else{System.out.println("삭제실패");}
+        else{System.out.println("삭제실패(없는 전화번호)");}
     }
 
 } // class end 

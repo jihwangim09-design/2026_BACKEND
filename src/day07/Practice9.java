@@ -11,8 +11,8 @@ public class Practice9 {
     g.greet("안녕");
     // 3.
     SimpleCalculator s = new SimpleCalculator();
-    int resulto = s.add(10, 5);
-    System.out.println(resulto);
+    int result = s.add(10, 5);
+    System.out.println(result);
     // 4.
     Checker c1 = new Checker();
     boolean result2 = c1.isEven(10);

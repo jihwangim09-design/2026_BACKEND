@@ -13,8 +13,6 @@ public class Practice10 {
         Score s = new Score();
         s.setScore(80);
         s.setScore(120);
-        System.out.println(Score);
-
 
         // 3.
 
@@ -28,7 +26,6 @@ public class Practice10 {
 }
 class Member{
     private String id;
-
     public void setId(String id) {
         this.id = id;
     }
@@ -37,9 +34,7 @@ class Member{
     }
 }
 class Score{
-    private int score ;
-
-
+    private int score;
     public void setScore( int score ) {
         if ( score >= 0 || score <= 100 ){
             this.score = score;

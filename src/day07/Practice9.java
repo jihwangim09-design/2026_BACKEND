@@ -11,8 +11,8 @@ public class Practice9 {
     g.greet("안녕");
     // 3.
     SimpleCalculator s = new SimpleCalculator();
-    int result = s.add(10, 5);
-    System.out.println(result);
+    int result1 = s.add(10, 5);
+    System.out.println(result1);
     // 4.
     Checker c1 = new Checker();
     boolean result2 = c1.isEven(10);
@@ -32,9 +32,15 @@ public class Practice9 {
     p.name = "콜라";
     p.stock = 10;
 
-    boolean result = p.sell(7);
-    System.out.println(result);   
+    boolean result6 = p.sell(7);
+    System.out.println(result6);   
     System.out.println(p.stock); 
+
+    Visualizer v = new Visualizer();
+
+    String vs = v.getStars(num7);
+
+
 
     } // m ed
 } // c ed
@@ -91,6 +97,18 @@ class Product{
             return false;
         }
     }
+}
+
+class Visualizer{
+    int num7;
+
+    void getStars(){
+        for ( int i = 0 ; i <= num7 - 1; i++) {
+            System.out.print("★");
+        }
+    }
+
+
 }
 
 

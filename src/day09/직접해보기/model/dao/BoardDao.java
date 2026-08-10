@@ -28,7 +28,7 @@ public class BoardDao {
         // 2. 리스트 전체 반환
         return boardList;
     }
-    // [2] 명단 수정
+    // [3] 명단 수정
     public boolean update(String phone, int newReady){
         for(BoardDto dto : boardList){
             if(dto.getPhone().equals(phone)){   

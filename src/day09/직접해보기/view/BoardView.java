@@ -20,6 +20,7 @@ public class BoardView {
             int ch = scan.nextInt();
             if( ch == 1 ) { save(); }
             else if( ch == 2 ) { findAll(); }
+            else if( ch == 3 ) { update(); }
             
         }
     }

@@ -13,7 +13,7 @@ public class BoardView {
     private BoardController bc = BoardController.getInstance(); // * view에서 controller 싱글톤 호출
     private Scanner scan = new Scanner( System.in); // * 모든 메소드에서 사용 가능한 입력객체 
     
-    // [*] 메인 입출력 
+    // [*] 메인 입출력
     public void run(){
         while(true){ // 무한루프
             System.out.print("1.등록 2.전체조회: " );

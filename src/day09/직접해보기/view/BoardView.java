@@ -13,18 +13,18 @@ public class BoardView {
     private BoardController bc = BoardController.getInstance(); // * view에서 controller 싱글톤 호출
     private Scanner scan = new Scanner( System.in); // * 모든 메소드에서 사용 가능한 입력객체 
     
-    // [*] 메인 입출력
-    public void run(){
-        while(true){ // 무한루프
-            System.out.print("1.대기명단 등록 2.대기명단 전체조회 3.대기명단 수정 4.대기명단 삭제: " );
-            int ch = scan.nextInt();
-            if( ch == 1 ) { save(); }
-            else if( ch == 2 ) { findAll(); }
-            else if( ch == 3 ) { update(); }
-            else if( ch == 4 ) { delete(); }
-            
+        // [*] 메인 입출력
+        public void run(){
+            while(true){ // 무한루프
+                System.out.print("1.대기명단 등록 2.대기명단 전체조회 3.대기명단 수정 4.대기명단 삭제: " );
+                int ch = scan.nextInt();
+                if( ch == 1 ) { save(); }
+                else if( ch == 2 ) { findAll(); }
+                else if( ch == 3 ) { update(); }
+                else if( ch == 4 ) { delete(); }
+                
+            }
         }
-    }
 
     // [1] 명단 작성 입출력
     public void save( ){

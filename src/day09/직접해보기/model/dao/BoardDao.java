@@ -11,7 +11,7 @@ public class BoardDao {
     // * 추후에 MYSQL 서버와 연동 *
     private ArrayList< BoardDto > boardList = new ArrayList<>(); 
 
-    // [1] 게시물 작성 로직 
+    // [1] 명단 작성 로직 
     public boolean save( BoardDto boardDto ){
         // 1. controller 으로 부터 저장할 정보 객체 받는다.
         // * 추후에 insert 이용한 db에 저장

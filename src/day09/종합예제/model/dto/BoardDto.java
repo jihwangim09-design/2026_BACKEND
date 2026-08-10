@@ -1,17 +1,17 @@
 package day09.종합예제.model.dto;
 
 public class BoardDto {
-    // DTO: 데이터 이동객체??, 자바는 저장소가 아니다. 즉 데이터베이스(저장소)가 저장소
-    // - 데이터베이스 표에서 (CRUD)사용할 자료들을 PRIVATE 멤버변수로 구성
+    // DTO: 데이터 이동객체??, 자바는 저장소가 아니다. 즉] 데이터베이스(저장소)가 저장소 
+    // 1. 데이터베이스 표에서 (CRUD) 사용할 자료들을 private 멤버변수로 구성
     private String content;
     private String writer;
-    // 2. 기본생성자, 전체매개변수 생성자
-    public BoardDto(){}
+    // 2. 기본생성자, 전체매개변수생성자
+    public BoardDto() { }
     public BoardDto(String content, String writer) {
         this.content = content;
         this.writer = writer;
     }
-    // 3. setter and getter , toString
+    // 3. setter and getter , toString 
     public String getContent() {
         return content;
     }
@@ -26,6 +26,6 @@ public class BoardDto {
     }
     @Override
     public String toString() {
-        return "BoardDto [toString()=" + super.toString() + "]";
+        return "BoardDto [content=" + content + ", writer=" + writer + "]";
     }
-} // c ed
+} // CLASS END 

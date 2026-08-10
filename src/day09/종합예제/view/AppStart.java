@@ -1,4 +1,4 @@
-package day09.종합예제;
+package day09.종합예제.view;
 
 import day09.종합예제.view.BoardView;
 

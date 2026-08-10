@@ -21,12 +21,22 @@ public class BoardDao {
         return true;
     }
     
-    // [2] 게시물 전체 조회 로직
+    // [2] 명단 전체 조회 로직
     public ArrayList<BoardDto> findAll( ){
         // 1. controller 에게 매개변수 받는다.현재는 없음
         // * 추후에 select 이용한 db 조회
         // 2. 리스트 전체 반환
         return boardList;
+    }
+    // [2] 명단 수정
+    public boolean update(String phone, int newReady){
+        for(BoardDto dto : boardList){
+            if(dto.getPhone().equals(phone)){   
+                dto.setReady(newReady);          
+                return true;
+            }
+        }
+        return false;
     }
 
 } // class end 

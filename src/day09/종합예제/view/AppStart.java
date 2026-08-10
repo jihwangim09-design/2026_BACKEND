@@ -1,6 +1,6 @@
-package day09.직접해보기.view;
+package day09.종합예제.view;
 
-import day09.직접해보기.view.BoardView;
+import day09.종합예제.view.BoardView;
 
 public class AppStart {
     // - 프로그램의 시작점

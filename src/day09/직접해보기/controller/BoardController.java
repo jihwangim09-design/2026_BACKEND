@@ -2,8 +2,8 @@ package day09.직접해보기.controller;
 
 import java.util.ArrayList;
 
-import day09.종합예제.model.dao.BoardDao;
-import day09.종합예제.model.dto.BoardDto;
+import day09.직접해보기.model.dao.BoardDao;
+import day09.직접해보기 .model.dto.BoardDto;
 
 public class BoardController {
     private BoardController(){}
@@ -11,7 +11,7 @@ public class BoardController {
     public static BoardController getInstance(){ return instance; }
     private BoardDao bd = BoardDao.getInstance(); // * controller 에서 dao 싱글톤 호출 
 
-    // [1] 게시물 작성 컨트롤러
+    // [1] 명단 작성 컨트롤러
     public boolean save( BoardDto boardDto ){
         // 1. view 으로 부터 저장할 정보 객체로 받는다.
         // * 유효성검사 / 타입 변환 등등
@@ -21,7 +21,7 @@ public class BoardController {
         return result;
     } // f end 
 
-    // [2] 게시물 전체 조회 컨트롤러
+    // [2] 명단 전체 조회 컨트롤러
     public ArrayList<BoardDto> findAll( ){
         // 1. view에게 매개변수 받는다. 현재는 없음
         // 2. dao에게 요청하고 응답 받는다.
@@ -29,6 +29,16 @@ public class BoardController {
         // 3. dao에게 받은 결과을 view에게 반환한다.
         return result;
     }
+
+    // [3] 명단 수정 컨트롤러
+    public boolean update(String phone, int newReady){
+        // 1. view에게 매개변수 받는다. 현재는 없음
+        // 2. dao에게 요청하고 응답 받는다.
+        boolean result = bd.update(phone, newReady);
+        // 3. dao에게 받은 결과을 view에게 반환한다.
+        return result;
+    }
+    
 
 
 } // class end 

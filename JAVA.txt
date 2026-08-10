@@ -179,3 +179,11 @@
     9. 흐름
         게시물쓰기: view <--DTO/VO--> CONTROLLER <--DTO/VO--> DAO/REPOSITORY <--> 데이터베이스(SQL)
         게시물조회: view <--DTO/VO--> CONTROLLER <--DTO/VO--> DAO/REPOSITORY <--> 데이터베이스(SQL)
+    10. 패키지구성
+        프로젝트폴더
+            -> controller 폴더
+            -> view 폴더
+            -> model 폴더
+                -> dao 폴더
+                -> dto 폴더
+            -> Appstart 클래스(프로젝트 최상위에 존재해야함?)

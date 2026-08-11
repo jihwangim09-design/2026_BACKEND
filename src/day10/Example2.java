@@ -1,3 +1,5 @@
+package day10;
+
 public class Example2 {
     public static void main(String[] args) {
         Car myCar = new Car();
@@ -10,9 +12,8 @@ public class Example2 {
         System.out.println( myCar.tire instanceof Tire ); // true
         System.out.println( myCar.tire instanceof KumhoTire ); // true
         System.out.println( myCar.tire instanceof HankookTire ); // false
-      
-    } // main
-} // class end
+    }
+}
 class Car{ // 자동차
  Tire tire;
  void run() { this.tire.roll(); }

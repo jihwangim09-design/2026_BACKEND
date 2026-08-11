@@ -178,11 +178,21 @@ public class Practice4 {
         }
 
     // 15.
+    System.out.print("플레이어1 (0:가위, 1:바위, 2:보): ");
+    int p1 = scan.nextInt();
+    System.out.print("플레이어2 (0:가위, 1:바위, 2:보): ");
+    int p2 = scan.nextInt();
 
-
-
+    if (p1 == p2) {
+        System.out.println("무승부");
+    } else if  ((p1 == 0 && p2 == 2) ||   
+                (p1 == 1 && p2 == 0) ||   
+                (p1 == 2 && p2 == 1)) {   
+        System.out.println("플레이어1 승리");
+        } else {
+        System.out.println("플레이어2 승리");
+        }
     }
-
 }
 
 /*[문제 1] Scanner를 이용해 두 개의 점수(int)를 입력받아 총점을 계산하세요.

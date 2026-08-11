@@ -50,5 +50,43 @@ select * from buy;
 
 #[1] 그룹 절
 SELECT * from buy; -- 전체조회
-SELECT * FROM buy; GROUP BY bpname; -- 제품명(bpname) 기준으로 그룹
+-- SELECT * FROM buy; GROUP BY bpname; -- 제품명(bpname) 기준으로 그룹 [오류]
 SELECT bpname FROM buy GROUP BY bpname; -- 제품명(bpname) 기준으로 그룹하고 bpname 필드만 조회
+# * 그룹당 단 하나의 대표값만 조회
+-- SELECT bpname, mid from buy GROUP BY bpname; -- [오류]
+
+# [2] 기초 집계함수
+select sum( bamount ) from buy; -- sum( 필드명 ) 합계
+select avg( bamount ) from buy; -- avg( 필드명 ) 평균
+select min( bamount ) from buy; -- min( 필드명 ) 최솟값
+select max( bamount ) from buy; -- max( 필드명 ) 최댓값
+select count( bamount ) from buy; -- count( 필드명 ) 레코드수( null 제외 )
+select count( * ) from buy; -- count( 필드명 ) 레코드수( null 포함 )
+
+# [3] 그룹 절과 집계함수 , 그룹 ( ~~별 ~~ 끼리 ) , 그룹필드명 집계함수
+SELECT mid FROM buy GROUP BY mid;   -- 1) mid 기준으로 그룹하여 총 구매수량(bamount)
+SELECT mid , sum(bamount * bprice) 구매금액 
+    FROM buy GROUP BY mid;          -- 2) mid 기준으로 총 구매금액( 수량 * 가격 )
+-- select count(*) , mid FROM from buy GROUP BY mid;           -- 3) mid(회원)별 판매 횟수
+
+# [4] 그룹절의 조건절 , where 그룹하기 전 조건 vs having 그룹하고난 후 조건
+select * from buy where bamount > 3;    -- 구매수량이 3 초과이면
+SELECT mid , sum (bamount) 총구매수량 FROM buy GROUP BY mid HAVING 총구매수량 > 5;
+# where 절에서 필드의 별칭 사용이 안된다. why? where절이 먼저 처리
+
+# [5] onder by 정렬 , desc내림차순 , asc 오름차순
+SELECT * from member order by mdebut;
+
+SELECT * from member order by mdebut DESC;
+
+# [*] 다중정렬이란? 첫번째 정렬 후 첫번째 필드 기준으로 중복이 존재한경우 중복끼리 2차정렬
+-- 1차정렬 지역(maddr) 먼저 정렬하고 지역 필드내 *동일한값끼리* 2차정렬(mdebut)한다.
+-- SELECT * from member order by mdebut DESC , mdebut asc;
+
+# [6] limit: 결과 레코드 제한, *페이징처리*
+select * from member;   -- 10개
+select * from member limit 2; -- 1 ~ 2 (2)
+select * from member limit 0 , 2; -- 1 ~ 2 (2) ( 0번 부터 2개 )(2)
+select * from member limit 5 , 5; -- 5번 부터 5개 (5)
+
+-- [순서] selete 필드명 from 테이블명 where 조건절 group by 그룹필드 having 그룹조건 order by 정렬필드 limit 시작인덱스, 개수;

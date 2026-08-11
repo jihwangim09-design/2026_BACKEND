@@ -8,6 +8,9 @@ import day09.직접해보기 .model.dto.BoardDto;
 public class BoardController {
     private BoardController(){}
     private static final BoardController instance = new BoardController();
+// private → 이 instance 변수도 외부에서 직접 BoardController.instance 처럼 접근 못 하게 막음
+// static → 객체(new) 없이도 클래스 이름으로 바로 접근 가능하고, 프로그램에서 딱 하나만 존재하는 값이 됨
+// final → 한 번 이렇게 만들어진 이후로는 다른 값으로 재할당 절대 불가능 (instance = new BoardController() 다시 못 함)
     public static BoardController getInstance(){ return instance; }
     private BoardDao bd = BoardDao.getInstance(); // * controller 에서 dao 싱글톤 호출 
 

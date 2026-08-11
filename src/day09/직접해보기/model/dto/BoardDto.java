@@ -6,7 +6,7 @@ public class BoardDto {
     private String phone;
     private int ready;
     // 2. 기본생성자, 전체매개변수생성자
-    public BoardDto() { }
+    public BoardDto(){}
     public BoardDto(String phone, int ready) {
         this.phone = phone;
         this.ready = ready;

@@ -25,7 +25,6 @@ public class BoardView {
                 
             }
         }
-
     // [1] 명단 작성 입출력
     public void save( ){
         // 1. 입력받기 

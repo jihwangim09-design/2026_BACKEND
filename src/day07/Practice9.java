@@ -36,9 +36,11 @@ public class Practice9 {
     System.out.println(result6);   
     System.out.println(p.stock); 
 
+    // 7.
     Visualizer v = new Visualizer();
+    String stars = v.getStars(5);
+    System.out.println(stars);
 
-    String vs = v.getStars(num7);
 
 
 
@@ -100,15 +102,14 @@ class Product{
 }
 
 class Visualizer{
-    int num7;
-
-    void getStars(){
-        for ( int i = 0 ; i <= num7 - 1; i++) {
-            System.out.print("★");
+    
+    String getStars(int num7){
+        String result7 = "";
+        for ( int i = 0 ; i < num7; i++) {
+            result7 += "★";
         }
+        return result7;
     }
-
-
 }
 
 

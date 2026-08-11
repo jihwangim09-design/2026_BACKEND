@@ -25,6 +25,9 @@ public class Practice8 {
     System.out.println();
 
     // 5.
+    Member m = new Member();
+    System.out.println("id: " + m.id);
+    System.out.println("isLogin: " + m.isLogin);
 
 
     } // m ed
@@ -83,6 +86,12 @@ class Goods{
 }
 
 class Member{
+    String id;
+    boolean isLogin;
     
+    Member(){
+        id = "guset";
+        isLogin = false;
+    }
 }
     

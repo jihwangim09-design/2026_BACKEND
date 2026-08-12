@@ -18,13 +18,14 @@ public class Practice12 {
     // 3.
     Computer computer = new Computer();
     // 4.
-    Figure f = new Triangle(); // Triangle(하위) --> Figure(상위) 업캐스팅
-    // 5. 오버라이딩 우선 실행된다.
+    Figure f = new Triangle(); 
+    // 5. 
     Shape shape = new Circle();
     shape.draw();
 
-    }
-}
+
+    }  // c ed
+} // m ed
 // 1. extends
 class Person{String name;}
 class Student extends Person{int studentId;}
@@ -55,20 +56,19 @@ class Computer extends Machine{
 }
 
 // 4.
-class Figure{
+class Figure{ }
+class Triangle extends Figure{}
 
-}
-class Triangle extends Figure{
+// 5.  
+class Shape{ void draw(){System.out.println("도형을 그립니다");}}
+class Circle extends Shape{ void draw(){ System.out.println("원을 그립니다.");}}
 
-}
+// 6.
+
+// 7.
 
 // 8.
 class Weapon{ void attack(){System.out.println("무기로공격합니다.");}}
-
-
-// 5. 메소드 오버라이딩 할 경우 메소드밖에 Overrride 생략시 자동 할당 
-class Shape{ void draw(){System.out.println("도형을 그립니다");}}
-class Circle extends Shape{ void draw(){ System.out.println("원을 그립니다.");}}
 /*[문제 1] 기본 상속
 1. name(문자열) 멤버 변수를 가진 Person 클래스를 만드세요.
 2. Person 클래스를 상속받는 Student 클래스를 만드세요. Student 클래스에는 studentId(정수) 멤버 변수를 추가하세요.

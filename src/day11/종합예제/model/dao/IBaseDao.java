@@ -10,5 +10,4 @@ public interface IBaseDao {
 
     boolean save(Object obj);
     ArrayList<Object> findAll();
-
 }

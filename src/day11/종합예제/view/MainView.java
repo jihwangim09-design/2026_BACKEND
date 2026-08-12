@@ -47,7 +47,7 @@ public class MainView {
             else { System.out.println("잘못된 입력입니다."); }
         }
     }
-
+    // 게시물 관리 1번
     private void saveBoard() {
         System.out.print("내용: ");
         String content = scan.next();
@@ -61,7 +61,7 @@ public class MainView {
             System.out.println("[오류] 게시물 등록 실패");
         }
     }
-
+    // 게시물 관리 2번
     private void findAllBoards() {
         ArrayList<BoardDto> list = bc.findAll();
         System.out.println("\n===== 게시물 목록 =====");
@@ -88,7 +88,7 @@ public class MainView {
             else { System.out.println("잘못된 입력입니다."); }
         }
     }
-
+    // 제품 관리 1번
     private void saveProduct() {
         System.out.print("제품명: ");
         String name = scan.next();
@@ -102,7 +102,7 @@ public class MainView {
             System.out.println("[오류] 제품 등록 실패");
         }
     }
-
+    // 제품 관리 2번
     private void findAllProducts() {
         ArrayList<ProductDto> list = pc.findAll();
         System.out.println("\n===== 제품 목록 =====");

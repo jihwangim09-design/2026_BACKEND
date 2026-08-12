@@ -4,11 +4,11 @@ public class BoardDto extends BaseTime {
     private String content;
     private String writer;
 
-    public BoardDto() {
+    public BoardDto() { // BoardDto() 오버로딩
         super();
     }
 
-    public BoardDto(String content, String writer) {
+    public BoardDto(String content, String writer) { // BoardDto() 오버로딩
         super();
         this.content = content;
         this.writer = writer;

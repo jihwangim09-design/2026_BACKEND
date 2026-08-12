@@ -1,12 +1,9 @@
 package day11;
 
-public class Exam1 {
     /*
         기본타입(리터럴):(8) byte, short, int, long, float, double, char, boolean
         참조타입(객체): [ ]배열, 클래스( String , Dto , Scanner 등등), 인터페이스 
     */
-   // 1. 인터페이스 만들기 , interface
-}
 // 1. 인터페이스 만들기 , interface 인터페이스명
 // 2. 인터페이스 주요벰버: 상수, 추상메소드
 // 3. 추상메소드 구현할 클래스 필요<구현객체> , 클래스명 implements 인터페이스명, 인터페이스명
@@ -26,3 +23,21 @@ class ExamClass implements ExamInterFace{ // 해당 클래스가 지정한 인�
 }
 // 인터페이스로 추상을 만들고 클래스로 구현한다?
 
+public class Exam1 {
+    public static void main(String[] args) {
+    // [1] 인터페이스는 인스턴스 생성불가능
+    // 생성자가 없어서
+    // ExamInterFace ei = new ExamInterFace();
+
+    // [2] implements 구현한 객체
+    ExamClass ec = new ExamClass();
+    ec.method1(10); // 가능
+    ec.method2(10 , 20); // 가능
+
+    // [3] 다형성:업캐스팅
+    ExamInterFace ei = new ExamClass();
+    // 인터페이스 타입 이더라도 오버라이딩 우선
+    ei.method1(10); // 가능
+    ei.method2(10, 20); // 가능
+    }
+}

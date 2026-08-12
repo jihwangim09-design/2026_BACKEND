@@ -62,6 +62,10 @@ class Triangle extends Figure{
 
 }
 
+// 8.
+class Weapon{ void attack(){System.out.println("무기로공격합니다.");}}
+
+
 // 5. 메소드 오버라이딩 할 경우 메소드밖에 Overrride 생략시 자동 할당 
 class Shape{ void draw(){System.out.println("도형을 그립니다");}}
 class Circle extends Shape{ void draw(){ System.out.println("원을 그립니다.");}}

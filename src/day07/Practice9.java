@@ -41,6 +41,9 @@ public class Practice9 {
     String stars = v.getStars(5);
     System.out.println(stars);
 
+    // 8.
+
+
 
 
 
@@ -109,6 +112,12 @@ class Visualizer{
             result7 += "★";
         }
         return result7;
+    }
+}
+
+class ParkingLot{
+    String calculateFee(time){
+        if ( time >)
     }
 }
 

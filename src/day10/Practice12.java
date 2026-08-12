@@ -62,7 +62,7 @@ class Triangle extends Figure{}
 // 5.  
 class Shape{ void draw(){System.out.println("도형을 그립니다");}}
 class Circle extends Shape{ void draw(){ System.out.println("원을 그립니다.");}}
-
+// 오버라이딩해서 타입이Shape아니라 객체의 Circle의 draw가 실행된다.
 // 6.
 
 // 7.

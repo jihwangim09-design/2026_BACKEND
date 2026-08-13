@@ -2,6 +2,7 @@ package day12;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Exam2 {
@@ -19,7 +20,20 @@ public class Exam2 {
             String user = "root"; String password = "1234";
             Connection conn = DriverManager.getConnection( url , user , password ); // DriverManager가 구현체 
             // [3] 데이터베이스 내 DML(insert,select,update,delete) 조작
-            System.out.println("데이터베이스 연동성공");
+            // 1. insert 하기
+            String sql = "insert into test( name ) values( '유재석') "; // 자바 문자열에 SQL 작성(자동완성 안된다.)
+            PreparedStatement ps = conn.prepareStatement(sql); 
+            // conn(연동된인터페이스).prepareStatement( 기재할SQL ); , 기재된 인터페이스 표현
+            // PreparedStatement( SQL이 기재된 인터페이스 )
+            int result = ps.executeUpdate(); // ps.executeUpdate() , ( SQL기재된 인터페이스에서 SQL 실행),
+            System.out.println( result ); // 1:성공 , 0:실패
+            System.out.println("레코드 등록 성공");
+            // 2. select 하기 , select 필드명 from 테이블명;
+            String sql2 = "select * from test";
+            PreparedStatement ps2 = conn.prepareStatement(sql2); // 작성한 SQL 기재한다. 
+            ps2.executeQuery(); // 기재된 SQL 실행
+
+            
         }catch( ClassNotFoundException e ){
             System.out.println("드라이버가 존재하지 않습니다."+ e); // 라이브러리 설치 안함
         }catch( SQLException e ){

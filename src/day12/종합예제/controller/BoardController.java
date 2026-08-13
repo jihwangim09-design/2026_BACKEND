@@ -1,6 +1,9 @@
 package day12.종합예제.controller;
 
+import java.util.ArrayList;
+
 import day12.종합예제.model.dao.BoardDao;
+import day12.종합예제.model.dto.BoardDto;
 
 public class BoardController {
     private BoardController(){}
@@ -12,6 +15,12 @@ public class BoardController {
     // [1] 등록 Controller
     public boolean save( BoardDto boardDto ){
         boolean result = bd.save( boardDto );
+        return result;
+    }
+
+    // [2] 전체조회 Controller
+    public ArrayList<BoardDto> findAll(){
+        ArrayList<BoardDto> result = bd.findAll();
         return result;
     }
 }

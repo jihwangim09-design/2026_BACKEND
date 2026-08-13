@@ -26,17 +26,17 @@ public class BoardDao extends BaseDao {
     // [1] 등록 DAO
     public boolean save( BoardDto boardDto ){
         try{
-        // 1.1 SQL 작성 , 값에 와일드카드(?) 이용한 매개변수 대입
-        String sql = "insert into board(content,writer)values( ? , ? )";
-        // 1.2 연동된 데이터베이스에 SQL 기재 , 예외 필수
-        PreparedStatement ps = conn.prepareStatement(sql); // conn 멤버변수는 BaseDao에게 물려받음.
-        // 1.3 기재된 SQL문법내 ?(와일드카드) 매개변수 값 대입, ps.set타입( ?번호, 값 );
-        ps.setString(1, boardDto.getContent() ); // 1( 첫번째 ? )에 dto content 대입
-        ps.setString(2, boardDto.getWriter() ); // 1( 두번째 ? )에 dto Writer 대입
-        // 1.4 기재된 SQL 실행 , executeUpdate() insert/update/delete 에서 사용
-        int result = ps.executeUpdate(); // 실행 후 처리된 레코드 수 반환
-        // 1.5 SQL 결과
-        if(result == 1) return true; // 성공 의미 갖는 true 반환
+            // 1.1 SQL 작성 , 값에 와일드카드(?) 이용한 매개변수 대입
+            String sql = "insert into board(content,writer)values( ? , ? )";
+            // 1.2 연동된 데이터베이스에 SQL 기재 , 예외 필수
+            PreparedStatement ps = conn.prepareStatement(sql); // conn 멤버변수는 BaseDao에게 물려받음.
+            // 1.3 기재된 SQL문법내 ?(와일드카드) 매개변수 값 대입, ps.set타입( ?번호, 값 );
+            ps.setString(1, boardDto.getContent() ); // 1( 첫번째 ? )에 dto content 대입
+            ps.setString(2, boardDto.getWriter() ); // 1( 두번째 ? )에 dto Writer 대입
+            // 1.4 기재된 SQL 실행 , executeUpdate() insert/update/delete 에서 사용
+            int result = ps.executeUpdate(); // 실행 후 처리된 레코드 수 반환
+            // 1.5 SQL 결과
+            if(result == 1) return true; // 성공 의미 갖는 true 반환
         }catch( SQLException e ){System.out.println( e );}
         // 1.5 SQL 결과
         return false; // 실패 의미 갖는 false 반환
@@ -66,5 +66,35 @@ public class BoardDao extends BaseDao {
         // 2.8 리스트 반환
         return list; 
     } // 전체조회 end 
+
+    
+ 	
+    // [3] 개별수정 DAO
+    public boolean update( BoardDto boardDto ){
+        try{
+            String sql = "update board set content = ? where no = ? ";// 1.1 SQL 작성
+            PreparedStatement ps = conn.prepareStatement(sql); // 1.2 SQL 기재 *예외*
+            ps.setString( 1 , boardDto.getContent() );// 1.3 SQL내 ? 매개변수대입
+            ps.setInt( 2 , boardDto.getNo() );
+            int result = ps.executeUpdate(); // 1.4 SQL 실행
+            if( result == 1 ) return true; // 1.5 실행 결과 반환
+        }catch( SQLException e ){ System.out.println( e ); }
+        return false; // 1.5 실행 결과 반환
+    }
+
+
+    // [4] 개별삭제 DAO 
+    public boolean delete( int no ){
+        try{ String sql = "delete from board where no = ?";
+            PreparedStatement ps = conn.prepareStatement( sql );
+            ps.setInt( 1 , no ); // SQL 문법내 첫번째 ? 에 매개변수 값 대입 
+            int result = ps.executeUpdate();
+            if( result == 1 ) return true;
+        }catch( SQLException e ){ System.out.println( e ); }
+        return false;
+    }
+
+
+    // [4] 개별 삭제
 } // c ed
 

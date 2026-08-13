@@ -23,4 +23,15 @@ public class BoardController {
         ArrayList<BoardDto> result = bd.findAll();
         return result;
     }
+
+    // [3] 개별수정 Controller 
+    public boolean update( BoardDto boardDto ){
+        return bd.update( boardDto );
+    }
+
+    
+    // [4] 개별삭제 Controller
+    public boolean delete( int no ){
+        return bd.delete( no );
+    }
 }

@@ -24,7 +24,7 @@ public class BoardView {
                 int ch = scan.nextInt();
                 if( ch == 1){ save(); }
                 else if( ch == 2){ findAll(); }
-                else if( ch == 3){}
+                else if( ch == 3){ update(); }
                 else if( ch == 4){}
             }catch(InputMismatchException e ){
                 // 입력(성공) 했지만 타입반환에서 예외 이므로 입력객체 초기화
@@ -51,6 +51,25 @@ public class BoardView {
             System.out.println( dto.getNo()+" / "+dto.getWriter()+" / " +dto.getContent() );
         }
     }
+
+    // [3] 개별수정 VIEW
+    public void update( ){
+        System.out.print("수정할번호: ");   int 수정할번호 = scan.nextInt();
+        System.out.print("수정할내용: ");   String 수정할내용 = scan.next();
+        BoardDto boardDto = new BoardDto(수정할번호, 수정할내용, null ); // writer 사용안함.null
+        boolean result = bc.update( boardDto );
+        if( result ){ System.out.println(">수정 성공"); }
+        else{ System.out.println(">수정 실패(없는 번호)"); }
+    }
+
+    // [4] 개별삭제 VIEW
+    public void delete( ){
+        System.out.print("삭제할번호: ");   int 삭제할번호 = scan.nextInt();
+        boolean result = bc.delete( 삭제할번호 ); // 매개변수가 1개 이므로 dto 없이
+        if( result ){ System.out.println(">삭제 성공"); }
+        else{ System.out.println(">삭제 실패(없는 번호)"); }
+    }
+
 
   
 } // e ed

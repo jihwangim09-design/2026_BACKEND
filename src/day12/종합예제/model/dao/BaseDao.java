@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class BaseDao {
-    // 여러개 DAO 클래스들에게 JDBC 연동 인스턴스 상속
+    // 여러개 DAO 클래스들에게 JDBC 연동 인스턴스 상속 
+    // 상속을 안하면 Dao 개수만큼 연동코드가 중복이 된다. DB주소나 비번이 바뀌면 DAO클래스 전부 돌아다니면서 수정해야함
     // 1. 연동 정보
     private String url = "jdbc.mysql://127.0.0.1:3306/mydb0813";
     private String user = "root";

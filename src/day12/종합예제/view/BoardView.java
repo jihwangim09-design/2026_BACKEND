@@ -25,7 +25,7 @@ public class BoardView {
                 if( ch == 1){ save(); }
                 else if( ch == 2){ findAll(); }
                 else if( ch == 3){ update(); }
-                else if( ch == 4){}
+                else if( ch == 4){ delete(); }
             }catch(InputMismatchException e ){
                 // 입력(성공) 했지만 타입반환에서 예외 이므로 입력객체 초기화
                 scan = new Scanner(System.in);

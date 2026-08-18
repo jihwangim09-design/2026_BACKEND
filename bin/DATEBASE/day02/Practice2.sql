@@ -14,7 +14,6 @@ CREATE table members(
     join_date DATETIME DEFAULT now() ,
     is_active BOOLEAN DEFAULT true
 );
-DESCRIBE products;
 
 -- 2.
 CREATE TABLE products(
@@ -30,11 +29,104 @@ DESCRIBE products;
 
 CREATE Table orders(
     order_id BIGINT AUTO_INCREMENT ,
-    constraint PRIMARY KEY (orders) ,
+    constraint PRIMARY KEY (order_id) ,
     member_id int ,
-    constraint FOREIGN KEY (members_id) REFERENCES members( member_id ), 
-    
-)
+    constraint FOREIGN KEY (member_id) REFERENCES members( member_id ) ,
+    order_date DATETIME DEFAULT now() ,
+    total_price int unsigned NOT NULL
+);
+
+CREATE TABLE order_items(
+    item_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (item_id) ,
+    order_id BIGINT ,
+    constraint FOREIGN KEY (order_id) REFERENCES orders(order_id) ,
+    product_id int , 
+    constraint FOREIGN KEY (product_id) REFERENCES products(product_id) ,
+    quantity int DEFAULT 1 ,
+    price int UNSIGNED NOT NULL 
+);
+
+CREATE TABLE students(
+    student_id VARCHAR(10) , 
+    constraint PRIMARY KEY (student_id) ,
+    student_name VARCHAR(30) NOT NULL ,
+    major VARCHAR(50) ,
+    grade TINYINT UNSIGNED ,
+    enrolled_date DATE
+);
+
+
+CREATE TABLE employees(
+    emp_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (emp_id) ,
+    emp_name varchar(40) ,
+    salary int unsigned NOT NULL ,
+    hire_date date NOT NULL ,
+    department varchar(50)
+);
+
+CREATE TABLE boards(
+    board_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (board_id) ,
+    title varchar(200) NOT NULL ,
+    content text NOT NULL ,
+    writer_id int ,
+    constraint FOREIGN KEY (writer_id) REFERENCES members( member_id ) ,
+    created_at datetime DEFAULT now()
+);
+
+CREATE TABLE comments(
+    comment_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (comment_id) ,
+    board_id int ,
+    constraint FOREIGN KEY (board_id) REFERENCES boards( board_id ) ,
+    writer_id int ,
+    constraint FOREIGN KEY (writer_id) REFERENCES members( member_id ) ,
+    content varchar(300) NOT NULL ,
+    created_at datetime DEFAULT now()
+);
+
+CREATE TABLE payments(
+    payment_id bigint AUTO_INCREMENT ,
+    constraint PRIMARY KEY (payment_id) ,
+    order_id bigint ,
+    constraint FOREIGN KEY (order_id) REFERENCES orders( order_id ) ,
+    payment_amount int unsigned NOT NULL ,
+    payment_method varchar(30) ,
+    payment_date datetime DEFAULT now()
+);
+
+CREATE TABLE reviews(
+    review_id int AUTO_INCREMENT ,
+    constraint PRIMARY KEY (review_id) ,
+    product_id int ,
+    constraint FOREIGN KEY (product_id) REFERENCES products( product_id ) ,
+    member_id int ,
+    constraint FOREIGN KEY (member_id) REFERENCES members( member_id ) ,
+    rating tinyint unsigned NOT NULL ,
+    review_text text ,
+    created_at datetime DEFAULT now()
+);
+
+-- [문제 1]아래 조건에 맞는 members 테이블을 생성하는 SQL을 작성하세요.
+-- 테이블명: members
+-- 컬럼 정보
+-- member_id (회원번호): 정수, Primary Key, 자동 증가
+-- member_name (회원이름): 문자열(50), NULL 허용 안함
+-- email (이메일): 문자열(100), Unique, NULL 허용 안함
+-- join_date (가입일): 날짜/시간, Default 현재 날짜/시간
+-- is_active (활성여부): 논리형(bool), Default true
+
+-- [문제 2]
+-- 아래 조건에 맞는 products 테이블을 생성하는 SQL을 작성하세요.
+-- 테이블명: products
+-- 컬럼 정보
+-- product_id (상품번호): 정수, Primary Key, 자동 증가
+-- product_name (상품명): 문자열(100), NULL 허용 안함
+-- price (가격): 정수, unsigned, NULL 허용 안함
+-- stock (재고수량): 정수, Default 0, NULL 허용 안함
+-- created_at (등록일): 날짜/시간, Default 현재 날짜/시간
 
 -- [문제 3]
 -- 아래 조건에 맞는 orders 테이블을 생성하는 SQL을 작성하세요.

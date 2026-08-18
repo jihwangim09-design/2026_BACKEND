@@ -17,7 +17,7 @@ public class test {
 
         // [*] 기존배열내 요소들의 값들을 새로운배열에 복사 -> 이동
         for ( int index = 0 ; index <= array.length - 1; index ++) {
-            newArray[index] - array[index]; //오른쪽 기존배열 index값을 왼쪽 새로운 배열 index에 대입
+            newArray[index] = array[index]; //오른쪽 기존배열 index값을 왼쪽 새로운 배열 index에 대입
         }
 
         // [4] [2] 반복

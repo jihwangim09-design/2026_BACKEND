@@ -41,6 +41,11 @@ public class Practice9 {
     System.out.println(stars);
 
     // 8.
+    ParkingLot parkingLot = new ParkingLot();
+    System.out.println(parkingLot.calculateFee(65));
+    System.out.println(parkingLot.calculateFee(140));
+
+
 
 
 
@@ -115,8 +120,17 @@ class Visualizer{
 }
 
 class ParkingLot{
-    String calculateFee(time){
-        if ( time >)
+    int calculateFee(int minutes) {
+        int qwer = 1000;
+        if ( minutes <= 30) {
+            int 초과분 = minutes - 30;
+            int 추가요금 = (초과분 + 9) / 10;
+            qwer += 추가요금 * 500;
+        }
+        if (qwer > 20000) {
+            qwer = 20000;
+        }
+        return qwer;
     }
 }
 

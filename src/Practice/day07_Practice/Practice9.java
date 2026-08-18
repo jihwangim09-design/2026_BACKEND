@@ -122,12 +122,15 @@ class Visualizer{
 
 class ParkingLot{
     int calculateFee(int minutes) {
-        int qwer = 1000;
-        if ( minutes >= 30) {
+        int qwer;
+        if ( minutes <= 30) {
+            qwer = 1000;
+        } else {
             int 초과분 = minutes - 30;
             int 추가요금 = 초과분 / 10;
-            qwer += 추가요금 * 500;
+            qwer = 1000 + 추가요금 * 500;
         }
+
         if (qwer > 20000) {
             qwer = 20000;
         }

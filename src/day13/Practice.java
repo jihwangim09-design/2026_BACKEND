@@ -105,7 +105,7 @@ public class Practice {
                         if (remainFee > 20000) {
                             remainFee = 20000; 
                         }
-                        int totalFee = (days * 20000) + remainFee; 
+                        int totalFee = (days * 20000) + remainFee;
                         
                         System.out.println("====== 출차 안내 ======");
                         System.out.println("차량번호: " + outCarNumber);

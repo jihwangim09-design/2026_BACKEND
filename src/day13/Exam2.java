@@ -48,6 +48,12 @@ public class Exam2 {
         System.out.println( result ); // 2026-08-29T11:11:30        20일 증가시키면 2026-09-08T11:11:30 이렇게 나옴 달이 바뀜
         LocalDateTime result2 = localDateTime2.minusDays(20);
         System.out.println( result2 ); // 2026-07-30T11:11:30
+        // 7. 특정한 날짜/시간 추출 , .getXXX()
+        System.out.println( localDateTime2.getYear() ); // 연도 2026
+        System.out.println( localDateTime2.getMonth() ); // .getMonth() 영문 AUGUST
+        System.out.println( localDateTime2.getMonthValue() ); // .getMonthValue() 정수 8
+        System.out.println( localDateTime2.getDayOfMonth() ); // 19
+        System.out.println( localDateTime2.getSecond() ); // 30
         
         // DTO: 포장(래퍼), 정보 많으니까  쇼핑하면 쇼핑백에 담음 왜 많으니까
     } // m ed

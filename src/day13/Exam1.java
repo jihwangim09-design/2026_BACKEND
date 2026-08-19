@@ -1,5 +1,10 @@
 package day13;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.net.Socket;
+
 import day12.종합예제.model.dto.BoardDto;
 
 public class Exam1 {
@@ -25,6 +30,34 @@ public class Exam1 {
         System.out.println( str2 == "유재석");   // false   객체(리터럴문자열) == 리터럴문자열
         // 리터럴로 정의한 문자열과 new String으로 정의한 문자열은 다르다. 문자열은 포장되기때문에 좀 더 다르다?
         System.out.println( str2.equals("유재석")); // true
+        // 3. hashCode( ) : 객체를 식별하는 값을 정수로 반환 *주소값은 16진수(0~9abcdef)진수 *사람은 10(0~9)진수 해쉬 코드는 10진수로 나옴
+        // 활용처 : 객체 탐지하는 주소값이 아닌 정수로된 값(키) 비교하여 속도 향상
+        System.out.println( o6.hashCode() ); // 2018699554
+        System.out.println( o7.hashCode() ); // 1311053135
+        System.out.println( str1.hashCode() ); // 50621969
+        System.out.println( "유재석".hashCode() ); // 50621969
+
+        // [2] Class : 클래스의 정보( 멤버변수/메소드/생성자 ) 담는 클래스
+        // 1. getClass()
+        String obj1 = new String();     Class c1 = obj1.getClass();
+        System.out.println( c1 );       // class java.lang.String 이렇게 나오는데 패키지명과 클래스명 확인
+        // 2. Class.forName("패키지명.클래스명") *일반예외 필수*
+        // *** 리플렉션 *** : 최초실행(컴파일)할 때 해당 클래스의 객체 로드/생성 하지 않고 실행 도중에 객체 로드/생성 한다.
+        // 활용처: JDBC(프로그램 시작이 아닌 DB연동시 MYSQL관련 클래스로드 ), 스프링프레임워크
+        try{Class.forName("java.lang.String");}
+        catch( ClassNotFoundException e ){ System.out.println( e );}
+
+        // 3. .getFields() : 클래스내 멤버변수 정보 반환
+        Field[ ] fields = c1.getFields();
+        for( Field field : fields ){ System.out.println( field );}
+
+        // 4. .getConstructors( ) : 클래스내 생성자 정보 반환
+        Constructor[] constructors = c1.getConstructors();
+        for ( Constructor constructor : constructors ){System.out.println( constructor ); }
+
+        // 5. .getMethods( ) : 클래스내 메소드 정보 반환
+        Method[] methods = c1.getMethods();
+        for (Method method : methods ){System.out.println( method );}
 
 
     } // m ed

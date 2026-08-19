@@ -1,10 +1,12 @@
 package day13;
 
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Practice {
     public static void main(String[] args) {
-
+                                        //  0123456789  
         String carParkingList = "3,211가6231,202608190930\n8,452하1234,202608171227";
         Scanner scan = new Scanner(System.in);
 
@@ -55,7 +57,73 @@ public class Practice {
                     System.out.println("주차 위치 번호" + location);
                 }
             } 
-            if( ch == 3 ){ } // 출차 구현
+            if( ch == 3 ){ 
+                // 출차 구현
+                System.out.println("출차할 차량번호");
+                String outCarNumber = scan.next();
+
+                String[] rows = carParkingList.split("\n");
+                String newpakinglist = "";
+                boolean result = false;
+
+                for (String row : rows ){
+                    String[] col = row.split(",");
+
+                    if(col[1].equals(outCarNumber)) {
+                        result = true;
+                        String inTimeStr = col[2];
+                        int year = Integer.parseInt( col[2].substring( 0 , 4 ) );       
+                        int month = Integer.parseInt( col[2].substring( 4 , 6 ));     
+                        int day = Integer.parseInt( col[2].substring( 6 , 8 ));        
+                        int hur = Integer.parseInt( col[2].substring( 8 , 10 ));       
+                        int min = Integer.parseInt( col[2].substring( 10 , 12 ));       
+                        
+                        LocalDateTime inTime = LocalDateTime.of(year, month, day, hur, min ); // 입차시간
+                        LocalDateTime now = LocalDateTime.now(); // 출차시간
+                        
+                        // [getDayOfYear] 활용하여 일수 차이 계산
+                        int inTotalDays = (inTime.getYear() * 365) + inTime.getDayOfYear(); // 0년부터 2026년까지 일수 + 2026년에서 입차까지 일수 
+                        int nowTotalDays = (now.getYear() * 365) + now.getDayOfYear(); // 0년부터 2026년까지 일수 + 2026년에서 출차까지 일수
+                        int diffDays = nowTotalDays - inTotalDays; // ex 입차를 8.19 출차를 8.20이면 diffDays는 1
+                        
+                        int inMinutesOfDay = (inTime.getHour() * 60) + inTime.getMinute(); // 년도랑 똑같음
+                        int nowMinutesOfDay = (now.getHour() * 60) + now.getMinute();
+                        
+                        int totalMinutes = (diffDays * 24 * 60) + (nowMinutesOfDay - inMinutesOfDay); // 24시간 분으로 환산 + 출차 - 입차  
+                        if( totalMinutes < 0 ) totalMinutes = 0; // 에러 방지 느낌
+                        
+                        // 요금 계산
+                        int days = totalMinutes / (24 * 60);          
+                        int remainMinutes = totalMinutes % (24 * 60); 
+                        int remainFee = 0;
+                        
+                        if (remainMinutes > 30) {
+                            int billableMinutes = remainMinutes - 30;
+                            // 10분 단위 올림 로직 (수학적 트릭 적용)
+                            remainFee = ((billableMinutes + 9) / 10) * 1000; 
+                        }
+                        if (remainFee > 20000) {
+                            remainFee = 20000; 
+                        }
+                        int totalFee = (days * 20000) + remainFee; 
+                        
+                        System.out.println("====== 출차 안내 ======");
+                        System.out.println("차량번호: " + outCarNumber);
+                        System.out.println("입차시간: " + inTime); 
+                        System.out.println("출차시간: " + now);    
+                        System.out.println("주차시간: " + totalMinutes + "분 (" + days + "일 " + remainMinutes + "분)");
+                        System.out.println("주차요금: " + totalFee + "원");
+                        System.out.println("=====================");
+                        
+                        // [String.replace]를 이용하여 해당 차량 정보를 텍스트에서 삭제
+                        carParkingList = carParkingList.replace( col[0]+","+col[1]+","+col[2]+"\n", "");
+
+                        break;
+                    }
+                    
+                }
+                
+            } 
         }
 
     }    

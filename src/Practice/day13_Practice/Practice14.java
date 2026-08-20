@@ -1,10 +1,10 @@
-package day13;
+package Practice.day13_Practice;
 
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Practice {
+public class Practice14 {
     public static void main(String[] args) {
                                         //  0123456789  
         String carParkingList = "3,211가6231,202608190930\n8,452하1234,202608171227";
@@ -139,7 +139,7 @@ public class Practice {
 2. 데이터 규격
 데이터 구분자:
 행(객체/차량) 구분: 줄바꿈 문자 (\n)
-열(속성) 구분: 쉼표 (,)
+열(속성) 구분: 쉼표 (,) CSV
 컬럼 순서: 위치번호,차량번호,날짜시간(YYYYMMDDhhmm)
 
 초기 데이터 예시:

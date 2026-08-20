@@ -2,6 +2,8 @@ package day14;
 
 import java.util.ArrayList;
 
+import javax.swing.Box;
+
 public class Exam1 {
     public static void main(String[] args) {
         /*
@@ -29,8 +31,33 @@ public class Exam1 {
         // - 제네릭 타입 대신에 Object로 사용시에는 타입변환 필요.
         ArrayList< String > list1 = new ArrayList<>(); // < 제네릭 > ArrayList< String >은 String 타입으로 배열 선언
         String[] list2 = new String[10];
+
+        // 4] 2개 이상의 제네릭 타입 가능
+        Box4<String, Integer> box4 = new Box4();
+        box4.value1 = "안녕하세요"; box4.value2 = 10;
+        // 5] 중첩 가능
+        Box4< String , ArrayList< Integer > > box44 = new Box4();
+        box4.value1 = "안녕하세요"; box44.value2 = new ArrayList<Integer>();
+        // *] 활용처: 컬렉션프레임워크( ArrayList )
+        // 6] 메소드 제네릭 가능 ( 메소드의 매개변수와 반환 타입 또한 제네릭 가능 )
+        Box3<String> box333 = Util.boxsing("사과");
+        System.out.println( box333.content ); // 사과
+
+        // 7] 상속 관계 제약 , < 타입 extends 상위 타입 >
+        // Box5<String> box5 = new Box5(); // String타입은 Number 타입의 자식이 아니라서 불가능.
+        Box5<Integer> box5 = new Box5<>(); // Integer타입은 Number 타입의 자식 이라서 가능. <오버라이딩>
     } // m ed
 } // c ed
 class Box1{ String content; } // 박스1 클래스내 문자열 content 대입 가능.
 class Box2{ int content; } // 박스2 클래스내 정수형 content 대입 가능.
 class Box3< 제네릭타입 >{ 제네릭타입 content; } // < > 이용한 미지수 타입 지정.
+class Box4< T , E >{ T value1; E value2; } // 두개의 멤버변수 생성
+class Util{
+    public static <T> Box3<T> boxsing( T 매개변수 ){ // 메소도의 타입들을 제네릭 타입 가능
+        Box3<T> box = new Box3();
+        box.content = 매개변수;
+        return box;
+    }
+}
+class Box5< T extends Number >{ T content; }; // T(제네릭)타입에는 Number 자식타입만 가능하도록 제약
+

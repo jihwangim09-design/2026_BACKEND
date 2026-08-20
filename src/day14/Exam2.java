@@ -21,16 +21,36 @@ public class Exam2 {
         */
 
         // [1] List 인터페이스
-        ArrayList<String> list1 = new ArrayList<>();
-        // list1 = new LinkedList(); // 불가능~ // 형제끼리 타입변환 불가능. 
-        List<String> list2 = new ArrayList<>();
+        ArrayList<String> list1 = new ArrayList<>(); // 선언 타입이 ArrayList 
+        // list1 = new LinkedList(); // 불가능~ // 형제끼리 타입변환 불가능. ArrayList와 LinkedList는 둘 다 List의 자식(형제)
+        List<String> list2 = new ArrayList<>(); // 선언 타입이 List(인터페이스로 선언) 즉 부모 타입으로 선언함 그래서 List계열이면 아무거나 다 담을 수 있음 
         list2 = new LinkedList<>(); // 다형성!!
 
 
         // [2] List 인터베이스 타입으로 구현체 메소드 사용가능 < day09 Exam1 > 가능한 이유는 오버라이딩 
         list2.add("유재석");
         System.out.println( list2.get(0));
+        list2.add("강호동");
+        
+        // [3] 리스트/배열과 반복문 관계 // 리스트(목록)내 항목(값)들을 한번에 못 꺼내고 하나씩 (순회/반복) 꺼낸다.
+        // 1. 일반 for문 , index 필요시
+        for( int index = 0; index <= list2.size() - 1; index++){ // index가 0부터 마지막인덱스까지 인덱스 
+            String str = list2.get(index);
+        }
+        // 2. 향상된 for문 , :(콜론)기준으로 오른쪽에 리스트(목록)들을 *하나씩* 왼쪽에 대입반복
+        for( String str : list2 ){ }
+        // 3. forEach문 , 반복메소드 , 리스트객체.forEach( (반복변수명) -> { } );
+        list2.forEach(( str ) -> { System.out.println( str );} );
+
+        // [4] List 구현체 차이 : 사용법(함수/메소드) 동일 , 구조적 차이
+        // ArrayList: 인덱스 기반의 배열 구조 + 동기화 미지원
 
 
+        // LinkedList: 링크 [h헤더][d본문][t꼬리] = 노드 기반의 리스트 구조
+
+        
+        // Vector: ArrayList 동일한 구조 + 동기화(상태를 최신화 스레드?) 지원? 
+
+        
     } // m ed
 } // c ed

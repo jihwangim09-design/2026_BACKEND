@@ -10,7 +10,7 @@ public class Practice14 {
         String carParkingList = "3,211가6231,202608190930\n8,452하1234,202608171227";
         Scanner scan = new Scanner(System.in);
 
-        while (true) {
+        while (true) {  
             System.out.print("1.위치찾기 2.입차 3.출차 선택:");
             int ch = scan.nextInt();
             // 위치찾기 구현
@@ -28,6 +28,11 @@ public class Practice14 {
                     }
                 }
                 if (!result) System.out.println("미등록 차량");
+            // String findCar = scan.next(); findCar에 차량번호를 입력받고 예를 들어 211가6231 이거를 입력받았다 치면
+            // int findInddex = carParkingList.indexOf(findCar); 파킹리스트에서 번호를 찾는데 0번째가 3 
+            // 1번째가 , 2번째에 211가6231이 시작되서 시작점인 2를 반환하고 
+            // System.out.println( carParkingList.charAt(findInddex-2)); findInddex-2는 0이니까 
+            // carParkingList의 0번째인 3을 반환 그뒤에 차량도 마찬가지
 
             }
             // 입차 구현 

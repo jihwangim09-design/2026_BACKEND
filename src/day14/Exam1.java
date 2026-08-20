@@ -1,5 +1,7 @@
 package day14;
 
+import java.util.ArrayList;
+
 public class Exam1 {
     public static void main(String[] args) {
         /*
@@ -24,8 +26,11 @@ public class Exam1 {
         box3.content = "안녕하세요";
         Box3< Integer > box33 = new Box3<>(); // 생성자 뒤에 제네릭 생략
         box33.content = 10;
+        // - 제네릭 타입 대신에 Object로 사용시에는 타입변환 필요.
+        ArrayList< String > list1 = new ArrayList<>(); // < 제네릭 > ArrayList< String >은 String 타입으로 배열 선언
+        String[] list2 = new String[10];
     } // m ed
 } // c ed
 class Box1{ String content; } // 박스1 클래스내 문자열 content 대입 가능.
 class Box2{ int content; } // 박스2 클래스내 정수형 content 대입 가능.
-class Box3< 제네릭타입 >{ 제네릭타입 content; } // < > 이용한 미지수 타입 지정
+class Box3< 제네릭타입 >{ 제네릭타입 content; } // < > 이용한 미지수 타입 지정.

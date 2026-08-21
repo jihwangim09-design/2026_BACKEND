@@ -50,8 +50,8 @@ public class Exam1 {
             System.out.println( key + ":" + map.get(key)); // 키 이용한 값 호출
         }
         // (3) .forEach( (반복변수명) ) -> { } );
-        map.keySet().forEach( key ) -> { 
-            System.out.println( key + ":" + map.get(key));};
+        map.keySet().forEach( ( key ) -> { 
+            System.out.println( key + ":" + map.get(key));});
 
 
 

@@ -13,14 +13,53 @@ public class Exam1 {
                     - 무결성 보장없음, 순서가 필요 없는 경우! ( 요청 후 다른 작업 필요한 경우 ) 
 
         */
+
+        // 1. 계산기 1개 만들기 
+        계산기 calculator = new 계산기();
+        // 2. 작업스레드1 
+        스레드1 thred1 = new 스레드1();
+        thred1.calculator = calculator;
+        // 3. 작업스레드2 
+        스레드2 thred2 = new 스레드2();
+        thred2.calculator = calculator;
+        // * 서로 다른 스레드가 동일한 객체(계산기) 참조중!
+        // 스레드 실행
+        thred1.start(); // 현재 계산기의 값: 200
+        thred2.start(); // 현재 계산기의 값: 200
+
     } // main ed
 } // class end
+class 스레드1 extends Thread{
+    public 계산기 calculator;
+    @Override
+    public void run() {
+        calculator.setMomemory(100); // 계산기 메소드에 100 대입
+    } // run end
+} // class end
+
+class 스레드2 extends Thread{
+    public 계산기 calculator;
+    @Override
+    public void run() {
+        calculator.setMomemory(200); // 계산기 메소드에 200 대입
+    } // run end
+} // class end
+
+
+
 class 계산기{ //클래스? 인스턴스 설계도( 종이 / 실체 아니다. ) new를 쓰던가 인스턴스를 만들어야 실체화하는거다.
     // 멤버변수란? 인스턴스의 상태/변수/값저장소/필드/속성/ 인스턴스마다! 할당
     public int memory;
     // 메소드란? 인스턴스의 행위/이벤트 , 여러 인스턴스가 공유/같이
-    public void setMomemory ( int memory ){
-        this.memory = memory; // this란? (주체)현재 메소드를 호출한 인스턴스 가리킴, 매개변수명 구분용
+
+    //[1] 비동기화(기본값)       : 200(두번째요청이 출력전 변경함) 200 출력
+    // public void setMomemory ( int memory ){
+    //[2] 동기화(synchronized) : 100(두번째요청이 대기상태임) 200 출려
+        public synchronized void setMomemory( int memory){
+        this.memory = memory; // this란? (주체)현재 메소드를 호출한 인스턴스 가리킴, 매개변수명과 구분용
         // super란? 부모의 메소드/멤버변수를 가리킴
-    }
-}
+        // 2~3초 대기상태만들기
+        try{ Thread.sleep(2000); }catch( Exception e ) { } // 2~3초 대기상태만들기
+        System.out.println("현재 계산기의 값: " + this.memory );
+    } // try end
+} // class end

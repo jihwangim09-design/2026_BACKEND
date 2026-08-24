@@ -22,7 +22,7 @@ public class Exam2 {
             Connection conn = DriverManager.getConnection( url , user , password ); // DriverManager가 구현체 
             // [3] 데이터베이스 내 DML(insert,select,update,delete) 조작
             // 1. insert 하기
-            String sql = "insert into test( name ) values('유재석') "; // 자바 문자열에 SQL 작성(자동완성 안된다.)
+            String sql = "insert into test( name ) values('유재석') "; // 자바 문자열에  SQL 작성(자동완성 안된다.)
             PreparedStatement ps = conn.prepareStatement(sql); 
             // conn(연동된인터페이스).prepareStatement( 기재할SQL ); , 기재된 인터페이스 표현
             // PreparedStatement( SQL이 기재된 인터페이스 )

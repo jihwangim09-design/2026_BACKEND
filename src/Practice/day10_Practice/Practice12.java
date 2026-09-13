@@ -1,4 +1,6 @@
-package day10;
+package Practice.day10_Practice;
+
+import java.util.ArrayList;
 
 public class Practice12 {
     public static void main(String[] args) {
@@ -13,6 +15,23 @@ public class Practice12 {
         // [5] 오버라이딩 우선 실행된다.!
         Shape shape = new Circle();
         shape.draw();
+        // [6]
+        Vehicle vehicle = new Bus();
+        if (vehicle instanceof Bus) {
+           Bus bus = (Bus) vehicle; // 다운 캐스팅 vehicle을 Bus 타입으로 다운
+           bus.checkFare();
+        }
+        // [7]
+        ArrayList<Beverage> list7 = new ArrayList<>();
+        Coke coke = new Coke();
+        Coffee coffee = new Coffee();
+        list7.add(coke);
+        list7.add(coffee);
+        for ( Beverage b : list7 ){
+            b.drink();
+        }
+
+
         // [8]
         Sword sword = new Sword();          Gun gun = new Gun();
         Character myChar = new Character();
@@ -33,7 +52,26 @@ class Weapon{ void attack(){ System.out.println("무기로 공격합니다."); }
 class Sword extends Weapon{ void attack(){ System.out.println("검으로 공격합니다."); } }
 class Gun extends Weapon{ void attack(){ System.out.println("총으로 공격합니다."); } }
 
+// [7]
+class Beverage{
+    void drink(){System.out.println("음료를 마십니다.");}
+}
+class Coke extends Beverage{
+    @Override 
+    void drink(){System.out.println("콜라를 마십니다.");}
+}
+class Coffee extends Beverage{
+    @Override 
+    void drink(){System.out.println("커피를 마십니다.");}
+}
 
+// [6]
+class Vehicle {
+
+}
+class Bus extends Vehicle{
+    void checkFare(){ System.out.println("요금을 확인합니다. ");}
+}
 
 // [5] 주의할점: 메소드 오버라이딩 할 경우 메소드위에 @Override 생략시 자동 할당
 class Shape{ void draw(){ System.out.println("도형을 그립니다.");} }

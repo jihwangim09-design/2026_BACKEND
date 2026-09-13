@@ -1,8 +1,7 @@
 package Practice.day09_Practice;
 
 import java.util.ArrayList;
-Get-ChildItem "C:\Program Files\MySQL" -Recurse -Filter mysql.exe
-import Practice.day05_Practice.Book;
+import java.util.Scanner;
 
 public class Practice11 {
     public static void main(String[] args) {
@@ -37,10 +36,29 @@ public class Practice11 {
         for (Book book : bookList ) {System.out.println(book.getTitle() + " : " + book.getAuthor() );}
 
         // 7.
+        Scanner scan = new Scanner(System.in);
+        ArrayList<String> list7 = new ArrayList<>();
+        while (true) {
+            System.out.println("입력: ");
+            String input = scan.nextLine();
 
+            if( input.equals("종료")){
+                break;
+            }
+
+            list7.add(input);
+        }
+        for ( String s : list7 ){
+            System.out.println(s);
+        }
 
         // 8.
-
+        ArrayList<String> list8 = new ArrayList<>();
+        list8.add("국어"); list8.add("수학"); list8.add("사회"); list8.add("과학");
+        list8.set(1, "영어");
+        for ( String t : list8){
+            System.out.println(t);
+        }
 
 
 
